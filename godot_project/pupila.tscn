@@ -10,9 +10,6 @@
 position = Vector2(960, 540)
 script = ExtResource("1_gpa58")
 
-[node name="eyelids" parent="." instance=ExtResource("2_dofpq")]
-position = Vector2(-960, -540)
-
 [node name="Cornea" type="Sprite2D" parent="."]
 position = Vector2(6, -23)
 texture = ExtResource("3_x1c56")
@@ -24,6 +21,9 @@ offset = Vector2(182, 7)
 [node name="Pupila" type="Sprite2D" parent="."]
 texture = ExtResource("2_2fh0a")
 offset = Vector2(256, 10)
+
+[node name="eyelids" parent="." instance=ExtResource("2_dofpq")]
+position = Vector2(-960, -540)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
