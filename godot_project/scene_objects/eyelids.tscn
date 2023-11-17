@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwj5pxiyuylty"]
+
+[ext_resource type="Texture2D" uid="uid://b2vj7wu3x160j" path="res://assets/sprites/eyelids.png" id="1_5x6s2"]
+[ext_resource type="Script" path="res://scripts/eyelids.gd" id="1_uhsu6"]
+
+[node name="eyelids" type="Node2D"]
+script = ExtResource("1_uhsu6")
+
+[node name="upper_eyelid" type="Sprite2D" parent="."]
+position = Vector2(0, -816)
+texture = ExtResource("1_5x6s2")
+centered = false
+
+[node name="lower_eyelid" type="Sprite2D" parent="."]
+position = Vector2(0, 1000)
+texture = ExtResource("1_5x6s2")
+centered = false
+flip_v = true
