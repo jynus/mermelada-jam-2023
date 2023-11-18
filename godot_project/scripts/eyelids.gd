@@ -12,10 +12,7 @@ var tween : Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	close_eyes(20)
-	await get_tree().create_timer(5).timeout
-	close_eyes(30)
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

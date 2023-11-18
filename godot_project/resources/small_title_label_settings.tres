@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://tje0ygjwilaf"]
+
+[ext_resource type="FontFile" uid="uid://csfgtka180pkw" path="res://assets/fonts/dogicapixelbold.ttf" id="1_usnwb"]
+
+[resource]
+font = ExtResource("1_usnwb")
+font_size = 100
+shadow_size = 0

@@ -6,7 +6,7 @@ var heart_scene : PackedScene = preload("res://Minijuego5/heart.tscn")
 
 @export var eyes_close_pct_on_hit: float = 5
 func _ready():
-	print_debug("midpoint: ", display_x_midpoint)
+	BackgroundMusic.play_song("cute")
 
 func _physics_process(delta):
 	pass
