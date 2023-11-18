@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://crgjwdi3psx4b" path="res://Minijuego3/ship_enemy.tscn" id="2_6eueh"]
 [ext_resource type="PackedScene" uid="uid://cbx0sjtcy3pp0" path="res://Minijuego3/ship_player.tscn" id="3_2kkv0"]
 
-[sub_resource type="Curve2D" id="Curve2D_jjfqs"]
+[sub_resource type="Curve2D" id="Curve2D_o5fik"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 940, 96, -11.9865, -446.496, 11.9865, 446.496, 1776, 545, 0, 0, 0, 0, 970, 1004, -56.9357, 428.516, 56.9357, -428.516, 233, 533, 0, 0, 0, 0, 940, 96)
+"points": PackedVector2Array(0, 0, 0, 0, 1003, 90, -23.9729, -287.675, 23.9729, 287.675, 1761, 462, 503.431, 0, -503.431, 0, 1033, 980, 26.9695, 320.638, -26.9695, -320.638, 209, 504, 0, 0, 0, 0, 1000, 90)
 }
 point_count = 5
 
@@ -28,14 +28,12 @@ polygon = PackedVector2Array(8, -3, 1926, 0, 1920, 1082, 2, 1082, 476, 887, 874,
 [node name="Ship_player" parent="." instance=ExtResource("3_2kkv0")]
 position = Vector2(974, 542)
 
-[node name="Path_enemy" type="Path2D" parent="."]
-position = Vector2(249.644, 122.789)
-scale = Vector2(0.778354, 0.752203)
-curve = SubResource("Curve2D_jjfqs")
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_o5fik")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path_enemy"]
-position = Vector2(940, 96)
-rotation = 0.492871
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1003, 90)
+rotation = 0.456232
 
 [node name="Enemy_timer" type="Timer" parent="."]
 wait_time = 0.5

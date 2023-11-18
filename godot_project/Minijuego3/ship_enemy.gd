@@ -1,12 +1,11 @@
-extends CharacterBody2D
+extends RigidBody2D
 
-var speed = randi_range(1, 2)
+#@export var speed : float = randf_range(150.0, 300.0)
 
-func _physics_process(delta):
-	move_and_slide()
 
-func initialize(_start_position, player_position):
-	look_at(player_position)
 
-func _on_visible_on_screen_enabler_2d_screen_entered():
+func _process(delta):
+	pass
+
+func _on_visible_on_screen_enabler_2d_screen_exited():
 	queue_free()
