@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bt3w1rj5unlei"]
+
+[ext_resource type="Script" path="res://Minijuego5/mundo.gd" id="1_vm5go"]
+[ext_resource type="Texture2D" uid="uid://bn83ggf8qn6fv" path="res://Minijuego_esquivar/bitmap.png" id="2_6wkeg"]
+[ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_l6sxw"]
+[ext_resource type="Texture2D" uid="uid://wko73mnrr8q0" path="res://assets/sprites/pupila.png" id="5_ny514"]
+[ext_resource type="AudioStream" uid="uid://dk2wbeph06dvc" path="res://Minijuego4/Pickup_coin 6.wav" id="6_kmj3a"]
+
+[node name="Mundo" type="Node2D"]
+script = ExtResource("1_vm5go")
+
+[node name="BorderEye1" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="BorderEye1"]
+position = Vector2(171, 84)
+polygon = PackedVector2Array(-131, -73, -131, 943, 1656, 948, 1343, 878, 1240, 923, 1061, 932, 548, 921, 272, 925, 99, 713, 65, 447, 140, 169, 331, 29, 546, 29, 760, 235, 762, 670, 703, 796, 570, 900, 979, 894, 801, 675, 799, 310, 917, 98, 1058, 21, 1289, 27, 1494, 258, 1500, 709, 1348, 870, 1683, 943, 1680, -68)
+
+[node name="fondo" type="Sprite2D" parent="."]
+position = Vector2(945, 522)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6wkeg")
+metadata/_edit_lock_ = true
+
+[node name="eyelids" parent="." instance=ExtResource("5_l6sxw")]
+z_index = 1
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_kmj3a")
+volume_db = -15.0
+
+[node name="Pupila" type="Sprite2D" parent="."]
+position = Vector2(596, 559)
+texture = ExtResource("5_ny514")
+
+[node name="Pupila2" type="Sprite2D" parent="."]
+position = Vector2(1309, 554)
+texture = ExtResource("5_ny514")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
