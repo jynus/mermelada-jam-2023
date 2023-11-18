@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://xo2n0mhxtie5"]
+
+[ext_resource type="Script" path="res://Minijuego4/Player.gd" id="1_e3vbn"]
+[ext_resource type="Texture2D" uid="uid://mpmi2jomyqbm" path="res://icon.svg" id="2_clrfp"]
+
+[sub_resource type="Curve2D" id="Curve2D_a0fp2"]
+_data = {
+"points": PackedVector2Array(169.474, 0.437755, -169.474, -0.437755, 491, 159, -2, -167.47, 2, 167.47, 214, 539, -179.501, 0.708232, 179.501, -0.708232, 493, 911)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkpof"]
+size = Vector2(123.333, 128.682)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_e3vbn")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-489, -537)
+curve = SubResource("Curve2D_a0fp2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(491, 159)
+rotation = -3.13901
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Area2D"]
+texture = ExtResource("2_clrfp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2(0.501292, 0.498718)
+shape = SubResource("RectangleShape2D_pkpof")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="area_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
