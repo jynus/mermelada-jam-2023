@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://s13scrpsg24m"]
+
+[ext_resource type="Texture2D" uid="uid://bn83ggf8qn6fv" path="res://Minijuego_esquivar/bitmap.png" id="1_ap7ul"]
+[ext_resource type="Script" path="res://Minijuego2/mundo.gd" id="1_gaiat"]
+[ext_resource type="PackedScene" uid="uid://c7pkk6crc75jp" path="res://Minijuego2/Player.tscn" id="3_hswgr"]
+[ext_resource type="PackedScene" uid="uid://dha3q45wclaem" path="res://Minijuego_esquivar/torreta.tscn" id="3_xaxf2"]
+[ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_xmtme"]
+
+[node name="Mundo" type="Node2D"]
+script = ExtResource("1_gaiat")
+
+[node name="BorderEye1" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="BorderEye1"]
+position = Vector2(171, 84)
+polygon = PackedVector2Array(-131, -73, -131, 943, 1656, 948, 1343, 878, 1240, 923, 1061, 932, 548, 921, 272, 925, 99, 713, 65, 447, 140, 169, 331, 29, 546, 29, 760, 235, 762, 670, 703, 796, 570, 900, 979, 894, 801, 675, 799, 310, 917, 98, 1058, 21, 1289, 27, 1494, 258, 1500, 709, 1348, 870, 1683, 943, 1680, -68)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(945, 522)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ap7ul")
+
+[node name="Player1" parent="." instance=ExtResource("3_hswgr")]
+position = Vector2(599, 571)
+
+[node name="Player2" parent="." instance=ExtResource("3_hswgr")]
+position = Vector2(1321, 572)
+
+[node name="Torreta" parent="." instance=ExtResource("3_xaxf2")]
+position = Vector2(593, 522)
+
+[node name="Torreta2" parent="." instance=ExtResource("3_xaxf2")]
+position = Vector2(1337, 522)
+
+[node name="eyelids" parent="." instance=ExtResource("5_xmtme")]
+
+[connection signal="player_hit" from="Player1" to="." method="_on_player_player_hit"]
+[connection signal="player_hit" from="Player2" to="." method="_on_player_player_hit"]

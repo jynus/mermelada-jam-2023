@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://ca6i88pnjhope"]
+
+[ext_resource type="Texture2D" uid="uid://dtu5seirl28yy" path="res://Minijuego_esquivar/one_eye.png" id="1_4dvon"]
+[ext_resource type="Script" path="res://Minijuego_esquivar/nave.gd" id="2_4rm1a"]
+[ext_resource type="Texture2D" uid="uid://mpmi2jomyqbm" path="res://icon.svg" id="3_55al5"]
+[ext_resource type="Script" path="res://Minijuego_esquivar/Enemy.gd" id="4_1yuum"]
+[ext_resource type="Texture2D" uid="uid://dd6b3m6jqbydj" path="res://Minijuego_esquivar/spaceShips_001.png" id="5_phsvh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0nof"]
+size = Vector2(127, 127)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adlr4"]
+radius = 43.4166
+
+[sub_resource type="Curve2D" id="Curve2D_vcgqt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1218, -508, 1221, -651, -1221, 651, 1218, 557)
+}
+point_count = 2
+
+[node name="mata_marcianos" type="Node2D"]
+position = Vector2(682, 515)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(279, 36)
+scale = Vector2(0.276712, 0.280621)
+texture = ExtResource("1_4dvon")
+
+[node name="nave" type="Area2D" parent="."]
+script = ExtResource("2_4rm1a")
+
+[node name="Sprite2D" type="Sprite2D" parent="nave"]
+texture = ExtResource("3_55al5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nave"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_d0nof")
+
+[node name="Enemy" type="Area2D" parent="."]
+position = Vector2(702, 258)
+rotation = 1.5708
+script = ExtResource("4_1yuum")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("5_phsvh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("CircleShape2D_adlr4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy"]
+
+[node name="Enemy2" type="Area2D" parent="."]
+position = Vector2(714, -198)
+rotation = 1.5708
+script = ExtResource("4_1yuum")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy2"]
+texture = ExtResource("5_phsvh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2"]
+shape = SubResource("CircleShape2D_adlr4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy2"]
+
+[node name="Enemy3" type="Area2D" parent="."]
+position = Vector2(717, 120)
+rotation = 1.5708
+script = ExtResource("4_1yuum")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy3"]
+texture = ExtResource("5_phsvh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3"]
+shape = SubResource("CircleShape2D_adlr4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy3"]
+
+[node name="Enemy4" type="Area2D" parent="."]
+position = Vector2(714, 0)
+rotation = 1.5708
+script = ExtResource("4_1yuum")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy4"]
+texture = ExtResource("5_phsvh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4"]
+shape = SubResource("CircleShape2D_adlr4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy4"]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-657.901, 28.6563)
+scale = Vector2(0.944089, 0.932394)
+curve = SubResource("Curve2D_vcgqt")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1218, -508)
+rotation = 1.5708
+
+[connection signal="screen_exited" from="Enemy/VisibleOnScreenNotifier2D" to="Enemy" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="Enemy2/VisibleOnScreenNotifier2D" to="Enemy2" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="Enemy3/VisibleOnScreenNotifier2D" to="Enemy3" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="Enemy4/VisibleOnScreenNotifier2D" to="Enemy4" method="_on_visible_on_screen_notifier_2d_screen_exited"]
