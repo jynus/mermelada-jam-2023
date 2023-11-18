@@ -17,6 +17,7 @@ func _process(delta):
 func change_direction():
 	speed = -speed
 	stopped = false
+	timer.wait_time = randi_range(2, 7)
 	timer.start()
 
 func _on_area_2d_area_entered(area):

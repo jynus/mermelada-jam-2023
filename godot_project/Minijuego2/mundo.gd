@@ -17,5 +17,5 @@ func _physics_process(delta):
 
 
 func _on_player_player_hit():
-	eyelids.close_eyes(10)
+	eyelids.close_eyes(5)
 

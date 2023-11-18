@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://jd6dkn47m8hp"]
 
-[ext_resource type="Script" path="res://Minijuego_esquivar/torreta.gd" id="1_1xemi"]
+[ext_resource type="Script" path="res://Minijuego2/torreta.gd" id="1_iv1wt"]
 [ext_resource type="Texture2D" uid="uid://cdfulihk1w18d" path="res://Minijuego_esquivar/towerDefense_tile250.png" id="2_fbi84"]
 
 [node name="Torreta" type="Node2D"]
 position = Vector2(905, 570)
-script = ExtResource("1_1xemi")
+script = ExtResource("1_iv1wt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

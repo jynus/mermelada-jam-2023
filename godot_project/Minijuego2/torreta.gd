@@ -2,7 +2,7 @@ extends Node2D
 
 @export var eye_rotation_degress: float = 2
 @onready var proyectile_spawner = $ProyectileSpawner
-var laser_scene: PackedScene = preload("res://scene_objects/proyectile.tscn")
+var laser_scene: PackedScene = preload("res://Minijuego2/Proyectile.tscn")
 var is_shooting = false
 
 

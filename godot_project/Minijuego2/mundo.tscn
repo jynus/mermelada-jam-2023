@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bn83ggf8qn6fv" path="res://Minijuego_esquivar/bitmap.png" id="1_ap7ul"]
 [ext_resource type="Script" path="res://Minijuego2/mundo.gd" id="1_gaiat"]
 [ext_resource type="PackedScene" uid="uid://c7pkk6crc75jp" path="res://Minijuego2/Player.tscn" id="3_hswgr"]
-[ext_resource type="PackedScene" uid="uid://dha3q45wclaem" path="res://Minijuego_esquivar/torreta.tscn" id="3_xaxf2"]
+[ext_resource type="PackedScene" uid="uid://jd6dkn47m8hp" path="res://Minijuego2/torreta.tscn" id="4_ym0ho"]
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_xmtme"]
 
 [node name="Mundo" type="Node2D"]
@@ -27,13 +27,14 @@ position = Vector2(599, 571)
 [node name="Player2" parent="." instance=ExtResource("3_hswgr")]
 position = Vector2(1321, 572)
 
-[node name="Torreta" parent="." instance=ExtResource("3_xaxf2")]
-position = Vector2(593, 522)
+[node name="Torreta" parent="." instance=ExtResource("4_ym0ho")]
+position = Vector2(599, 570)
 
-[node name="Torreta2" parent="." instance=ExtResource("3_xaxf2")]
-position = Vector2(1337, 522)
+[node name="Torreta2" parent="." instance=ExtResource("4_ym0ho")]
+position = Vector2(1319, 571)
 
 [node name="eyelids" parent="." instance=ExtResource("5_xmtme")]
+z_index = 1
 
 [connection signal="player_hit" from="Player1" to="." method="_on_player_player_hit"]
 [connection signal="player_hit" from="Player2" to="." method="_on_player_player_hit"]

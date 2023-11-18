@@ -27,7 +27,7 @@ func close_eyes(amount: float = 10):
 		tween.kill()
 	percentage_eyelid_closed = clamp(percentage_eyelid_closed + amount, 0, 100)
 	var animation_time : float = time_to_close_fully / 100 * amount
-	var target_upper = original_pos_upper - original_pos_upper / 2 / 100 * percentage_eyelid_closed
+	var target_upper = original_pos_upper - original_pos_upper / 100 * percentage_eyelid_closed
 	var target_lower = original_pos_lower - (target_upper - original_pos_upper)
 	tween = create_tween().set_parallel(true)
 	tween.tween_property(upper_eyelid, "position:y", target_upper, animation_time).set_trans(Tween.TRANS_BOUNCE)
