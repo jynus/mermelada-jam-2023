@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbgnmsxfoear5"]
+
+[ext_resource type="Texture2D" uid="uid://bn83ggf8qn6fv" path="res://Minijuego_esquivar/bitmap.png" id="1_xpwgc"]
+[ext_resource type="PackedScene" uid="uid://jxqusdtspoc7" path="res://Minijuego_esquivar/Player.tscn" id="2_vtcxk"]
+[ext_resource type="PackedScene" uid="uid://dha3q45wclaem" path="res://Minijuego_esquivar/torreta.tscn" id="3_ftjh5"]
+
+[node name="Mundo" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(945, 522)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_xpwgc")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_vtcxk")]
+position = Vector2(191, 98)
+
+[node name="Torreta" parent="." instance=ExtResource("3_ftjh5")]
+position = Vector2(593, 522)

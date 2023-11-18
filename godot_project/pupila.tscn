@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://45s41055ilhg"]
+[gd_scene load_steps=6 format=3 uid="uid://dgtnbs7atikjt"]
 
 [ext_resource type="Script" path="res://pupila.gd" id="1_gpa58"]
 [ext_resource type="Texture2D" uid="uid://wko73mnrr8q0" path="res://assets/sprites/pupila.png" id="2_2fh0a"]

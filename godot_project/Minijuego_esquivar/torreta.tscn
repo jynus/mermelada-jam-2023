@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dha3q45wclaem"]
+
+[ext_resource type="Script" path="res://Minijuego_esquivar/torreta.gd" id="1_ya4we"]
+[ext_resource type="Texture2D" uid="uid://cdfulihk1w18d" path="res://Minijuego_esquivar/towerDefense_tile250.png" id="2_bi5i1"]
+
+[node name="Torreta" type="Node2D"]
+position = Vector2(905, 570)
+script = ExtResource("1_ya4we")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bi5i1")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+target_position = Vector2(0, -400)
+collide_with_areas = true
