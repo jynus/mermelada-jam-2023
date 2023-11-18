@@ -1,14 +1,12 @@
 extends Node2D
 
-class_name Player
-
 @onready var timer = $Timer
 
 signal player_hit
 var stopped: bool = false
 
 @onready var path : PathFollow2D = $Path2D/PathFollow2D
-@export var speed = 0.15
+@export var speed: float = 0.15
 
 func _process(delta):
 	if not stopped:
