@@ -1,6 +1,6 @@
 extends Area2D
 
-class_name Player
+
 const speed = 200
 
 
