@@ -12,7 +12,14 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_xpwgc")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_vtcxk")]
-position = Vector2(191, 98)
+position = Vector2(685, 681)
 
 [node name="Torreta" parent="." instance=ExtResource("3_ftjh5")]
 position = Vector2(593, 522)
+
+[node name="BorderEye1" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="BorderEye1"]
+position = Vector2(171, 84)
+polygon = PackedVector2Array(-131, -73, -131, 943, 1656, 948, 1343, 878, 1240, 923, 1061, 932, 548, 921, 272, 925, 99, 713, 65, 447, 140, 169, 331, 29, 546, 29, 760, 235, 762, 670, 703, 796, 570, 900, 979, 894, 801, 675, 799, 310, 917, 98, 1058, 21, 1289, 27, 1494, 258, 1500, 709, 1348, 870, 1683, 943, 1680, -68)

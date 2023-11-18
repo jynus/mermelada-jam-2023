@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgtnbs7atikjt"]
+
+[ext_resource type="Script" path="res://scripts/pupila.gd" id="1_djbbl"]
+[ext_resource type="Texture2D" uid="uid://33bdoft5vec8" path="res://assets/sprites/cornea.png" id="2_g0ifw"]
+[ext_resource type="Texture2D" uid="uid://jr7348pyamq1" path="res://assets/sprites/circular_sector.png" id="3_oejcq"]
+[ext_resource type="Texture2D" uid="uid://wko73mnrr8q0" path="res://assets/sprites/pupila.png" id="4_tyufw"]
+[ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_jp61v"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(960, 540)
+script = ExtResource("1_djbbl")
+
+[node name="Cornea" type="Sprite2D" parent="."]
+position = Vector2(6, -23)
+texture = ExtResource("2_g0ifw")
+
+[node name="CircularSector" type="Sprite2D" parent="."]
+texture = ExtResource("3_oejcq")
+offset = Vector2(182, 7)
+
+[node name="Pupila" type="Sprite2D" parent="."]
+texture = ExtResource("4_tyufw")
+offset = Vector2(256, 10)
+
+[node name="eyelids" parent="." instance=ExtResource("5_jp61v")]
+position = Vector2(-960, -540)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
