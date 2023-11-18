@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_l6sxw"]
 [ext_resource type="Texture2D" uid="uid://wko73mnrr8q0" path="res://assets/sprites/pupila.png" id="5_ny514"]
 [ext_resource type="AudioStream" uid="uid://dk2wbeph06dvc" path="res://Minijuego4/Pickup_coin 6.wav" id="6_kmj3a"]
-[ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="6_pyi22"]
+[ext_resource type="PackedScene" path="res://scene_objects/pause_menu.tscn" id="6_pyi22"]
 
 [node name="Mundo" type="Node2D"]
 script = ExtResource("1_vm5go")
