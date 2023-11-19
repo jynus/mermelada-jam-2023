@@ -1,13 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://di7ul4c0lti0h"]
+[gd_scene load_steps=11 format=3 uid="uid://di7ul4c0lti0h"]
 
 [ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_3a1el"]
 [ext_resource type="Script" path="res://scripts/win_level.gd" id="1_a36hw"]
 [ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="3_jughf"]
+[ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_kf8y2"]
+[ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_jbdie"]
+[ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_li2qb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fsmoq"]
 font = ExtResource("1_3a1el")
 font_size = 100
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wotgl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1eyy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2adv"]
 
 [node name="win_level" type="Control"]
 process_mode = 3
@@ -67,6 +76,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_3a1el")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("3_kf8y2")
+theme_override_styles/hover = ExtResource("4_jbdie")
+theme_override_styles/pressed = ExtResource("5_li2qb")
+theme_override_styles/disabled = ExtResource("3_kf8y2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wotgl")
 text = "Next level"
 
 [node name="MarginContainer2" type="MarginContainer" parent="background/win_level_menu/VBoxContainer"]
@@ -80,6 +94,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_3a1el")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("3_kf8y2")
+theme_override_styles/hover = ExtResource("4_jbdie")
+theme_override_styles/pressed = ExtResource("5_li2qb")
+theme_override_styles/disabled = ExtResource("3_kf8y2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_o1eyy")
 text = "Repeat level"
 
 [node name="MarginContainer3" type="MarginContainer" parent="background/win_level_menu/VBoxContainer"]
@@ -93,6 +112,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_3a1el")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("3_kf8y2")
+theme_override_styles/hover = ExtResource("4_jbdie")
+theme_override_styles/pressed = ExtResource("5_li2qb")
+theme_override_styles/disabled = ExtResource("3_kf8y2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_g2adv")
 text = "Back to main menu"
 
 [node name="MarginContainer" type="MarginContainer" parent="background/win_level_menu"]

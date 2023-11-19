@@ -8,6 +8,7 @@ const WEB_URL : String = "https://jynus.com"
 @onready var done_button : Button = %doneButton
 
 func _ready():
+	BackgroundMusic.play_song("menu")
 	if Input.get_connected_joypads().size() > 0:
 		done_button.grab_focus()
 
