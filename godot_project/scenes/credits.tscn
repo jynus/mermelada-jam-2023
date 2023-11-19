@@ -1,19 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp76wk0hhmwag"]
+[gd_scene load_steps=15 format=3 uid="uid://bmkt6lcuptbnf"]
 
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="1_c4tx6"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_o3suw"]
 [ext_resource type="FontFile" uid="uid://btvwq11pvkgw7" path="res://assets/fonts/minimal5x7.ttf" id="2_5ad5r"]
-[ext_resource type="PackedScene" uid="uid://k635iu86fy37" path="res://scene_objects/menu_background.tscn" id="2_pa7y0"]
-[ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="3_6rbj4"]
+[ext_resource type="PackedScene" uid="uid://cues4uwwmc7sa" path="res://scene_objects/menu_background.tscn" id="2_pa7y0"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="4_3veic"]
-[ext_resource type="FontFile" uid="uid://csfgtka180pkw" path="res://assets/fonts/dogicapixelbold.ttf" id="4_f8v2u"]
+[ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="4_o4jsb"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="5_7nd3c"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="6_3f04u"]
-[ext_resource type="Texture2D" uid="uid://qbxjx8w8ke10" path="res://assets/sprites/twitter.png" id="7_5hy4m"]
-[ext_resource type="Texture2D" uid="uid://byerhmo73ar7s" path="res://assets/sprites/itchio.png" id="8_0bwxl"]
-[ext_resource type="Texture2D" uid="uid://bfsncibogmah4" path="res://assets/sprites/web.png" id="9_g2a5j"]
-[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="13_4wf1y"]
-[ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="13_25eo3"]
+[ext_resource type="Texture2D" uid="uid://b8wrqre2aygvy" path="res://assets/sprites/twitter.png" id="7_5hy4m"]
+[ext_resource type="Texture2D" uid="uid://cp0ho3n68mll2" path="res://assets/sprites/itchio.png" id="8_0bwxl"]
+[ext_resource type="Texture2D" uid="uid://binuc0xykqv77" path="res://assets/sprites/web.png" id="9_g2a5j"]
+[ext_resource type="PackedScene" path="res://scene_objects/blip.tscn" id="13_4wf1y"]
+[ext_resource type="PackedScene" path="res://scene_objects/menu_button.tscn" id="13_25eo3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hugtt"]
 bg_color = Color(0, 0, 0, 0)
@@ -52,7 +51,7 @@ label_settings = ExtResource("1_c4tx6")
 horizontal_alignment = 1
 
 [node name="topMargin2" type="MarginContainer" parent="menuContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="optionsContainer" type="HBoxContainer" parent="menuContainer"]
@@ -73,27 +72,50 @@ size_flags_vertical = 0
 custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/default_color = Color(0, 0, 0.0901961, 1)
 theme_override_constants/line_separation = 25
-theme_override_fonts/normal_font = ExtResource("3_6rbj4")
-theme_override_fonts/bold_font = ExtResource("4_f8v2u")
+theme_override_fonts/normal_font = ExtResource("4_o4jsb")
+theme_override_fonts/bold_font = ExtResource("4_o4jsb")
 theme_override_font_sizes/normal_font_size = 50
-theme_override_font_sizes/bold_font_size = 60
+theme_override_font_sizes/bold_font_size = 70
 bbcode_enabled = true
-text = "[center][b]Design & programming[/b]:
-
-*your name*
-
- * Made with Godot 4 in 48 hours for the Game Jam *
+text = "[center][b]Eoloh[/b] (programación)
+[b]montes8ish[/b] (diseño gráfico)
+[b]moliwater[/b] (música y sonido)
+[b]jynus[/b] (programación)
+ * Made with Godot 4 in 72 hours for the Mermelada Jam *
 
 [/center]"
+
+[node name="rightMargin2" type="MarginContainer" parent="menuContainer/optionsContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
 
 [node name="socialButtonContainer" type="VBoxContainer" parent="menuContainer/optionsContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_constants/separation = 40
 
 [node name="twitterButton" type="Button" parent="menuContainer/optionsContainer/socialButtonContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_5ad5r")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("4_3veic")
+theme_override_styles/hover = ExtResource("5_7nd3c")
+theme_override_styles/pressed = ExtResource("6_3f04u")
+theme_override_styles/disabled = ExtResource("4_3veic")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
+icon = ExtResource("7_5hy4m")
+icon_alignment = 1
+
+[node name="twitterButton2" type="Button" parent="menuContainer/optionsContainer/socialButtonContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -111,7 +133,7 @@ icon = ExtResource("7_5hy4m")
 icon_alignment = 1
 
 [node name="itchioButton" type="Button" parent="menuContainer/optionsContainer/socialButtonContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -129,7 +151,7 @@ icon = ExtResource("8_0bwxl")
 icon_alignment = 1
 
 [node name="webButton" type="Button" parent="menuContainer/optionsContainer/socialButtonContainer"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -154,6 +176,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 75)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_o4jsb")
 theme_override_font_sizes/font_size = 45
 
 [node name="bottomMargin" type="MarginContainer" parent="menuContainer"]
@@ -163,6 +186,7 @@ layout_mode = 2
 [node name="blip" parent="." instance=ExtResource("13_4wf1y")]
 
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/twitterButton" to="." method="_on_twitter_button_pressed"]
+[connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/twitterButton2" to="." method="_on_twitter_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/itchioButton" to="." method="_on_itchio_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/webButton" to="." method="_on_web_button_pressed"]
 [connection signal="pressed" from="menuContainer/doneButton" to="." method="_on_done_button_pressed"]

@@ -17,6 +17,8 @@ func _ready():
 	if Input.get_connected_joypads().size() > 0:
 		play_button.grab_focus()
 	BackgroundMusic.play_song("menu")
+	# show gatete only on root main menu
+	$"backgroudMenu/Gatete".show()
 
 func _process(_delta):
 	pass

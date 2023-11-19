@@ -1,8 +1,13 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://csrb5ilr7y6dy"]
 
-[ext_resource type="FontFile" uid="uid://csfgtka180pkw" path="res://assets/fonts/dogicapixelbold.ttf" id="1_gf53h"]
+[ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_rlj78"]
 
 [resource]
-font = ExtResource("1_gf53h")
+font = ExtResource("1_rlj78")
 font_size = 100
+font_color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.12549)
+shadow_offset = Vector2(5, 5)
