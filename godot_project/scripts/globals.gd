@@ -8,3 +8,6 @@ var COLOR_BAD: Color = Color.CRIMSON  # the color used for "bad things"
 
 # var FX_GOOD: String = "res://"
 # var FX_BAD: String = "res://"
+
+var current_world : String
+var current_level : String
