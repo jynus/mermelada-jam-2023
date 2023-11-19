@@ -5,6 +5,8 @@ extends Node
 
 var laser = preload("res://assets/sprites/laserBlue08.png")
 var cat = preload("res://assets/sprites/huella.png")
+@onready var win_level = %win_level
+@onready var lose_level = %lose_level
 
 func _ready():
 	Input.set_custom_mouse_cursor(laser)
@@ -41,9 +43,14 @@ func _on_ship_player_player_hit():
 	eyelids.close_eyes(5)
 
 func game_over():
-	#TODO
 	Input.set_custom_mouse_cursor(null)
-	get_tree().change_scene_to_file("res://scenes/level_select.tscn")
+	lose_level.show()
+
+func level_win():
+	win_level.show()
 
 func _on_eyelids_fully_closed():
 	game_over()
+
+func _on_win_timer_timeout():
+	level_win()

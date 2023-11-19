@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckavc8eqedhf6"]
+[gd_scene load_steps=11 format=3 uid="uid://ckavc8eqedhf6"]
 
 [ext_resource type="Script" path="res://scripts/levels/level03.gd" id="1_2tov6"]
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="2_b5bg6"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c7588ecjctp32" path="res://assets/sprites/ojo_1.png" id="4_nkwdm"]
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_jbmu1"]
 [ext_resource type="AudioStream" uid="uid://drltccy7c0nv0" path="res://assets/sfx/miss.wav" id="7_qvxu5"]
+[ext_resource type="PackedScene" uid="uid://4mjf4hysg5a0" path="res://scene_objects/lose_level.tscn" id="8_fgbep"]
+[ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="9_1pdko"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pacnh"]
 radius = 29.6835
@@ -86,8 +88,22 @@ volume_db = -15.0
 [node name="OutsideTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="lose_level" parent="." instance=ExtResource("8_fgbep")]
+unique_name_in_owner = true
+visible = false
+
+[node name="win_level" parent="." instance=ExtResource("9_1pdko")]
+unique_name_in_owner = true
+visible = false
+
+[node name="WinTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 60.0
+autostart = true
+
 [connection signal="area_entered" from="Cornea/CircularSector/KeepArea" to="." method="_on_keep_area_area_entered"]
 [connection signal="area_exited" from="Cornea/CircularSector/KeepArea" to="." method="_on_keep_area_area_exited"]
 [connection signal="timeout" from="RandomMovementTimer" to="." method="_on_random_movement_timer_timeout"]
 [connection signal="fully_closed" from="eyelids" to="." method="_on_eyelids_fully_closed"]
 [connection signal="timeout" from="OutsideTimer" to="." method="_on_outside_timer_timeout"]
+[connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]

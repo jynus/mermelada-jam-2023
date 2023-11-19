@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbtwagkfa8wxg"]
+[gd_scene load_steps=11 format=3 uid="uid://cbtwagkfa8wxg"]
 
 [ext_resource type="Script" path="res://scripts/levels/level05.gd" id="1_nacv0"]
 [ext_resource type="Texture2D" uid="uid://cufm6i4dfv0wb" path="res://Minijuego3/one_eye.png" id="2_48dd3"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="4_f3hrf"]
 [ext_resource type="AudioStream" uid="uid://4hk4nb0sme7s" path="res://assets/sfx/shari_meow.mp3" id="5_gsi7m"]
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="7_qp8kp"]
+[ext_resource type="PackedScene" uid="uid://4mjf4hysg5a0" path="res://scene_objects/lose_level.tscn" id="8_88p8s"]
+[ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="9_d7sot"]
 
 [sub_resource type="Curve2D" id="Curve2D_eimt3"]
 _data = {
@@ -51,8 +53,22 @@ z_index = 1
 stream = ExtResource("5_gsi7m")
 volume_db = -8.0
 
+[node name="lose_level" parent="." instance=ExtResource("8_88p8s")]
+unique_name_in_owner = true
+visible = false
+
+[node name="win_level" parent="." instance=ExtResource("9_d7sot")]
+unique_name_in_owner = true
+visible = false
+
 [node name="pauseMenu" parent="." instance=ExtResource("7_qp8kp")]
+visible = false
+
+[node name="WinTimer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
 
 [connection signal="player_hit" from="Ship_player" to="." method="_on_ship_player_player_hit"]
 [connection signal="timeout" from="Enemy_timer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="fully_closed" from="eyelids" to="." method="_on_eyelids_fully_closed"]
+[connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]

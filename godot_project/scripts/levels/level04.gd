@@ -5,6 +5,9 @@ extends Node2D
 @onready var player2 = %PlayerTurret2
 @onready var display_x_midpoint : float = get_viewport_rect().size.x / 2
 @onready var eyelids = %eyelids
+@onready var lose_level = %lose_level
+@onready var win_level = %win_level
+@onready var win_timer = %WinTimer
 
 func _ready():
 	BackgroundMusic.play_song("troll")
@@ -20,8 +23,13 @@ func _on_player_player_hit():
 	eyelids.close_eyes(5)
 
 func game_over():
-	#TODO
-	get_tree().change_scene_to_file("res://scenes/level_select.tscn")
+	lose_level.show()
+
+func level_win():
+	win_level.show()
 
 func _on_eyelids_fully_closed():
 	game_over()
+
+func _on_win_timer_timeout():
+	level_win()

@@ -10,6 +10,9 @@ extends Node2D
 @onready var danger_area_2: Sprite2D = %DangerArea2
 @onready var good_area_sprite: Sprite2D = %GoodAreaSprite
 @onready var outside_timer = %OutsideTimer
+@onready var lose_level = %lose_level
+@onready var win_level = %win_level
+@onready var win_timer = %WinTimer
 
 var tween : Tween
 
@@ -60,8 +63,13 @@ func _on_outside_timer_timeout():
 	outside()
 
 func game_over():
-	# TODO
-	get_tree().change_scene_to_file("res://scenes/level_select.tscn")
+	lose_level.show()
 
 func _on_eyelids_fully_closed():
 	game_over()
+
+func level_win():
+	win_level.show()
+
+func _on_win_timer_timeout():
+	level_win()

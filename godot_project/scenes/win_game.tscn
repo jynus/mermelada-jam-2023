@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcn6mv851ljvb"]
+[gd_scene load_steps=11 format=3 uid="uid://dcn6mv851ljvb"]
 
 [ext_resource type="Script" path="res://scripts/win_game.gd" id="1_2ptp0"]
 [ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_42mbi"]
+[ext_resource type="Texture2D" uid="uid://bu4ocks1yebcp" path="res://assets/backgrounds/fondo_menu_1.jpg" id="2_4t8ni"]
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_sle3p"]
 [ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="3_lybhq"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_qofn5"]
@@ -48,6 +49,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2ptp0")
+
+[node name="backgroundSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_4t8ni")
+centered = false
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1

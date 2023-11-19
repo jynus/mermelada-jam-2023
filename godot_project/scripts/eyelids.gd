@@ -24,14 +24,16 @@ func _process(_delta):
 
 func close_eyes(amount: float = 10):
 	"""Closes eyelids for some amount, from 0 to 100, in percentage"""
-	if tween:
-		tween.kill()
 	percentage_eyelid_closed = clamp(percentage_eyelid_closed + amount, 0, 100)
 	if percentage_eyelid_closed == 100:
 		fully_closed.emit()
 	var animation_time : float = time_to_close_fully / 100 * amount
 	var target_upper = original_pos_upper - original_pos_upper / 100 * percentage_eyelid_closed
 	var target_lower = original_pos_lower - (target_upper - original_pos_upper)
-	tween = create_tween().set_parallel(true)
-	tween.tween_property(upper_eyelid, "position:y", target_upper, animation_time).set_trans(Tween.TRANS_BOUNCE)
-	tween.tween_property(lower_eyelid, "position:y", target_lower, animation_time).set_trans(Tween.TRANS_BOUNCE)
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	if tween != null:
+		tween.set_parallel(true)
+		tween.tween_property(upper_eyelid, "position:y", target_upper, animation_time).set_trans(Tween.TRANS_BOUNCE)
+		tween.tween_property(lower_eyelid, "position:y", target_lower, animation_time).set_trans(Tween.TRANS_BOUNCE)
