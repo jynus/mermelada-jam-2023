@@ -13,7 +13,7 @@ var tween: Tween
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timer.wait_time = ojos_lag
-
+	love_animation.color = Globals.COLOR_GOOD
 
 func _on_timer_timeout():
 	var direction : Vector2 = (get_global_mouse_position() - ojos_center.global_position).normalized()
