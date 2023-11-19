@@ -37,9 +37,6 @@ bus = &"sfx"
 wait_time = 3.0
 autostart = true
 
-[node name="pauseMenu" parent="." instance=ExtResource("1_mqqb5")]
-visible = false
-
 [node name="spawnLimitLeft" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(458, 711)
@@ -50,12 +47,18 @@ unique_name_in_owner = true
 position = Vector2(1112, 728)
 gizmo_extents = 100.0
 
+[node name="colirios" type="Node2D" parent="."]
+unique_name_in_owner = true
+
 [node name="Player" parent="." instance=ExtResource("6_btcbf")]
 unique_name_in_owner = true
 position = Vector2(792, 926)
 
 [node name="eyelids" parent="." instance=ExtResource("6_74l2a")]
 unique_name_in_owner = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("1_mqqb5")]
+visible = false
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]

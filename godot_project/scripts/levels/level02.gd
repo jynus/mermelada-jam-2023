@@ -8,6 +8,7 @@ var spawn_object_level : PackedScene = preload("res://scene_objects/colirio.tscn
 @onready var spawn_limit_right = %spawnLimitRight
 @onready var miss_effect = %MissEffect
 @onready var eyelids: Eyelids = %eyelids
+@onready var colirios = %colirios
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +23,7 @@ func spawn_object():
 	var object: Colirio = spawn_object_level.instantiate()
 	var sprite : Sprite2D = object.get_node("Sprite")
 	var size = Vector2(sprite.texture.get_width(), sprite.texture.get_height())
-	get_parent().add_child(object)
+	get_node("colirios").add_child(object)
 	object.global_position = Vector2(randi_range(spawn_limit_left.position.x + size.x / 2,
 												 spawn_limit_right.position.x - size.x / 2),
 									 -size.y)
