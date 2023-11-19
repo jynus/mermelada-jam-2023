@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://drqqljbvmspgk"]
+
+[ext_resource type="Script" path="res://scripts/levels/level04.gd" id="1_76uvf"]
+[ext_resource type="Texture2D" uid="uid://bedodfi6bwajw" path="res://assets/backgrounds/minijuego_2_nivel_4_fase_1.png" id="2_gjdcc"]
+[ext_resource type="PackedScene" uid="uid://cbv6oiwho8swl" path="res://scene_objects/torreta.tscn" id="3_m6oba"]
+[ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="4_isd8q"]
+[ext_resource type="PackedScene" uid="uid://b572jyegbcwyo" path="res://scene_objects/player_turret.tscn" id="4_q5pjy"]
+[ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_lr0bt"]
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_76uvf")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_gjdcc")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="BorderEye1" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="BorderEye1"]
+position = Vector2(211, 80)
+polygon = PackedVector2Array(-209, -83, -206, 999, 388, 1005, 391, 955, 150, 952, -12, 459, 159, -17, 616, -14, 734, 183, 801, 736, 467, 958, 432, 1002, 845, 996, 848, -80)
+metadata/_edit_lock_ = true
+
+[node name="BorderEye2" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="BorderEye2"]
+position = Vector2(211, 80)
+polygon = PackedVector2Array(721, -77, 721, 999, 1715, 1002, 1702, 732, 1524, 726, 1328, 952, 972, 932, 756, 412, 1026, 9, 1410, 9, 1591, 437, 1509, 691, 1712, 694, 1706, -78)
+metadata/_edit_lock_ = true
+
+[node name="PivotTorreta1" type="Marker2D" parent="."]
+position = Vector2(630, 530)
+
+[node name="Torreta1" parent="PivotTorreta1" instance=ExtResource("3_m6oba")]
+
+[node name="PlayerTurret1" parent="PivotTorreta1" instance=ExtResource("4_q5pjy")]
+unique_name_in_owner = true
+
+[node name="PivotTorreta2" type="Marker2D" parent="."]
+position = Vector2(1398, 544)
+
+[node name="Torreta2" parent="PivotTorreta2" instance=ExtResource("3_m6oba")]
+side = "right"
+
+[node name="PlayerTurret2" parent="PivotTorreta2" instance=ExtResource("4_q5pjy")]
+unique_name_in_owner = true
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="eyelids" parent="." instance=ExtResource("5_lr0bt")]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("4_isd8q")]
+visible = false
+
+[connection signal="player_hit" from="PivotTorreta1/PlayerTurret1" to="." method="_on_player_player_hit"]
+[connection signal="player_hit" from="PivotTorreta2/PlayerTurret2" to="." method="_on_player_player_hit"]

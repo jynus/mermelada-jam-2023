@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgefuwh2xj8no"]
 
-[ext_resource type="Texture2D" uid="uid://b011up3bfbrej" path="res://Minijuego_esquivar/laserGreen02.png" id="1_0eubi"]
 [ext_resource type="Script" path="res://scripts/proyectile.gd" id="1_ediy1"]
+[ext_resource type="Texture2D" uid="uid://cc4wdfa8cd2i6" path="res://assets/sprites/laser.png" id="2_8hksl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nhqx2"]
 radius = 7.0
@@ -9,8 +9,9 @@ height = 58.0
 
 [node name="Proyectile" type="Area2D"]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_ediy1")
+speed = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(29.5, -10.5)
@@ -22,14 +23,16 @@ position = Vector2(29.5, 10.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nhqx2")
 
-[node name="LaserGreen02" type="Sprite2D" parent="."]
+[node name="Laser1" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(29.5, 10.5)
 rotation = 1.5708
-texture = ExtResource("1_0eubi")
+texture = ExtResource("2_8hksl")
 
-[node name="LaserGreen03" type="Sprite2D" parent="."]
+[node name="Laser2" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(29.5, -10.5)
 rotation = 1.5708
-texture = ExtResource("1_0eubi")
+texture = ExtResource("2_8hksl")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
