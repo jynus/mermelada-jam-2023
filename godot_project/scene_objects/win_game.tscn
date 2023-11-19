@@ -2,21 +2,43 @@
 
 [ext_resource type="Script" path="res://scripts/win_game.gd" id="1_2ptp0"]
 [ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_42mbi"]
+[ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_sle3p"]
 [ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="3_lybhq"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_qofn5"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_ja6qw"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_xflox"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_fsc7s"]
-font = ExtResource("1_42mbi")
-font_size = 100
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt6hm"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0156863, 0.109804, 0.145098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4h5y3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eabe"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_color = Color(0, 0, 0, 0.00392157)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxfxp"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0156863, 0.109804, 0.145098, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [node name="win_game" type="Control"]
 layout_mode = 3
@@ -55,11 +77,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="background/win_menu/VBoxContainer"]
+[node name="Title" type="Label" parent="background/win_menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "YOU WIN"
-label_settings = SubResource("LabelSettings_fsc7s")
+label_settings = ExtResource("2_sle3p")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -79,7 +101,7 @@ theme_override_styles/normal = ExtResource("3_qofn5")
 theme_override_styles/hover = ExtResource("4_ja6qw")
 theme_override_styles/pressed = ExtResource("5_xflox")
 theme_override_styles/disabled = ExtResource("3_qofn5")
-theme_override_styles/focus = SubResource("StyleBoxFlat_4h5y3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vt6hm")
 text = "Credits"
 
 [node name="MarginContainer2" type="MarginContainer" parent="background/win_menu/VBoxContainer"]
@@ -97,7 +119,7 @@ theme_override_styles/normal = ExtResource("3_qofn5")
 theme_override_styles/hover = ExtResource("4_ja6qw")
 theme_override_styles/pressed = ExtResource("5_xflox")
 theme_override_styles/disabled = ExtResource("3_qofn5")
-theme_override_styles/focus = SubResource("StyleBoxFlat_8eabe")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cxfxp")
 text = "Back to main menu"
 
 [node name="MarginContainer3" type="MarginContainer" parent="background/win_menu/VBoxContainer"]

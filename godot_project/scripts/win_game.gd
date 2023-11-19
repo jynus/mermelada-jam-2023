@@ -14,7 +14,6 @@ func _process(delta):
 		previous_music = BackgroundMusic.current_song
 		previous_music_offset = BackgroundMusic.stop()
 
-
 func unpaused():
 	get_tree().paused = false
 
