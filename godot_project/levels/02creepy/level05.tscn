@@ -1,3 +1,58 @@
-[gd_scene format=3 uid="uid://cbtwagkfa8wxg"]
+[gd_scene load_steps=9 format=3 uid="uid://cbtwagkfa8wxg"]
+
+[ext_resource type="Script" path="res://scripts/levels/level05.gd" id="1_nacv0"]
+[ext_resource type="Texture2D" uid="uid://cufm6i4dfv0wb" path="res://Minijuego3/one_eye.png" id="2_48dd3"]
+[ext_resource type="PackedScene" uid="uid://crpai8uhbtnl8" path="res://scene_objects/ship_enemy.tscn" id="2_ked14"]
+[ext_resource type="PackedScene" uid="uid://3j12oompt7pk" path="res://scene_objects/ship_player.tscn" id="3_nkvcf"]
+[ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="4_f3hrf"]
+[ext_resource type="AudioStream" uid="uid://4hk4nb0sme7s" path="res://assets/sfx/shari_meow.mp3" id="5_gsi7m"]
+[ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="7_qp8kp"]
+
+[sub_resource type="Curve2D" id="Curve2D_eimt3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1003, 90, -23.9729, -287.675, 23.9729, 287.675, 1761, 462, 503.431, 0, -503.431, 0, 1033, 980, 26.9695, 320.638, -26.9695, -320.638, 209, 504, 0, 0, 0, 0, 1000, 90)
+}
+point_count = 5
 
 [node name="level" type="Node2D"]
+script = ExtResource("1_nacv0")
+enemy_scene = ExtResource("2_ked14")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(962, 540)
+scale = Vector2(0.265399, 0.266536)
+texture = ExtResource("2_48dd3")
+metadata/_edit_lock_ = true
+
+[node name="borde_eye" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="borde_eye"]
+polygon = PackedVector2Array(8, -3, 1926, 0, 1920, 1082, 2, 1082, 476, 887, 874, 1004, 1431, 938, 1689, 755, 1788, 545, 1674, 306, 1452, 162, 1093, 90, 730, 111, 407, 243, 239, 465, 245, 692, 455, 866, 11, 1067)
+
+[node name="Ship_player" parent="." instance=ExtResource("3_nkvcf")]
+position = Vector2(967, 546)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_eimt3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1003, 90)
+rotation = 0.456232
+
+[node name="Enemy_timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="eyelids" parent="." instance=ExtResource("4_f3hrf")]
+z_index = 1
+
+[node name="laser_cat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gsi7m")
+volume_db = -8.0
+
+[node name="pauseMenu" parent="." instance=ExtResource("7_qp8kp")]
+
+[connection signal="player_hit" from="Ship_player" to="." method="_on_ship_player_player_hit"]
+[connection signal="timeout" from="Enemy_timer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="fully_closed" from="eyelids" to="." method="_on_eyelids_fully_closed"]

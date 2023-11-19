@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://3j12oompt7pk"]
+
+[ext_resource type="Script" path="res://Minijuego3/ship_player.gd" id="1_1igmj"]
+[ext_resource type="Texture2D" uid="uid://c7588ecjctp32" path="res://assets/sprites/ojo_1.png" id="2_bkatu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibije"]
+radius = 95.021
+
+[node name="Ship_player" type="Area2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_1igmj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(23.5, 0.5)
+scale = Vector2(3, 3)
+texture = ExtResource("2_bkatu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("CircleShape2D_ibije")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
