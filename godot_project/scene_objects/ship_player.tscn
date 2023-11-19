@@ -1,10 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://3j12oompt7pk"]
+[gd_scene load_steps=7 format=3 uid="uid://3j12oompt7pk"]
 
 [ext_resource type="Script" path="res://Minijuego3/ship_player.gd" id="1_1igmj"]
 [ext_resource type="Texture2D" uid="uid://c7588ecjctp32" path="res://assets/sprites/ojo_1.png" id="2_bkatu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ibije"]
 radius = 95.021
+
+[sub_resource type="Animation" id="Animation_vi773"]
+resource_name = "hit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 2.63902, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(1.7027, 1.97487), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 2.54912, 1, 2.54912, 1, 2.54912),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.788235, 0, 0, 1), Color(1, 1, 1, 1), Color(0.788235, 0, 0, 1), Color(1, 1, 1, 1), Color(0.788235, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kw5f8"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xu3xn"]
+_data = {
+"RESET": SubResource("Animation_kw5f8"),
+"hit": SubResource("Animation_vi773")
+}
 
 [node name="Ship_player" type="Area2D"]
 collision_layer = 2
@@ -19,5 +81,10 @@ texture = ExtResource("2_bkatu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("CircleShape2D_ibije")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xu3xn")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
