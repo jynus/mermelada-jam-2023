@@ -54,5 +54,3 @@ metadata/_edit_lock_ = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ninpm")
 volume_db = -15.0
-
-[connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]

@@ -1,7 +1,5 @@
 extends Node2D
 
-class_name Player4
-
 @onready var timer = $Timer
 
 signal player_hit

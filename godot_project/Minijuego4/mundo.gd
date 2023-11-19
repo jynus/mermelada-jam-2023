@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player: Player4 = $Player
+@onready var player: = $Player
 @onready var display_x_midpoint : float = get_viewport_rect().size.x / 2
 @onready var eyelids = $eyelids
 
