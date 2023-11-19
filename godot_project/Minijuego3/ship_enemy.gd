@@ -1,9 +1,5 @@
 extends RigidBody2D
 
-#@export var speed : float = randf_range(150.0, 300.0)
-
-
-
 func _process(delta):
 	pass
 

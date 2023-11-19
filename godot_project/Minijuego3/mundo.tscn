@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c45reygjcc4yt"]
+[gd_scene load_steps=7 format=3 uid="uid://c45reygjcc4yt"]
 
 [ext_resource type="Script" path="res://Minijuego3/mundo.gd" id="1_5m2u4"]
 [ext_resource type="Texture2D" uid="uid://cufm6i4dfv0wb" path="res://Minijuego3/one_eye.png" id="2_1ybxy"]
 [ext_resource type="PackedScene" uid="uid://crgjwdi3psx4b" path="res://Minijuego3/ship_enemy.tscn" id="2_6eueh"]
 [ext_resource type="PackedScene" uid="uid://cbx0sjtcy3pp0" path="res://Minijuego3/ship_player.tscn" id="3_2kkv0"]
+[ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_as3p2"]
 
 [sub_resource type="Curve2D" id="Curve2D_o5fik"]
 _data = {
@@ -27,6 +28,7 @@ polygon = PackedVector2Array(8, -3, 1926, 0, 1920, 1082, 2, 1082, 476, 887, 874,
 
 [node name="Ship_player" parent="." instance=ExtResource("3_2kkv0")]
 position = Vector2(974, 542)
+collision_mask = 3
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_o5fik")
@@ -39,4 +41,8 @@ rotation = 0.456232
 wait_time = 0.5
 autostart = true
 
+[node name="eyelids" parent="." instance=ExtResource("5_as3p2")]
+z_index = 1
+
+[connection signal="player_hit" from="Ship_player" to="." method="_on_ship_player_player_hit"]
 [connection signal="timeout" from="Enemy_timer" to="." method="_on_enemy_timer_timeout"]
