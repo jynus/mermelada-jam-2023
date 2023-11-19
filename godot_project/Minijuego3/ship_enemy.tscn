@@ -19,4 +19,14 @@ shape = SubResource("CircleShape2D_4wil2")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -61.0
+offset_top = -45.0
+offset_right = 63.0
+offset_bottom = 48.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

@@ -3,11 +3,13 @@ extends Node
 @export var enemy_scene : PackedScene
 @onready var eyelids = $eyelids
 
+var laser = load("res://Minijuego3/laserBlue08.png")
+var cat = load("res://Minijuego3/huella.png")
 
 func _ready():
-	pass
+	Input.set_custom_mouse_cursor(laser)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 
 func _on_enemy_timer_timeout():
@@ -15,7 +17,7 @@ func _on_enemy_timer_timeout():
 	enemy_spawn_location.progress_ratio = randf()
 	
 	var enemy = enemy_scene.instantiate()
-	add_child(enemy)
+	get_parent().add_child(enemy)
 	
 	enemy.position = enemy_spawn_location.position
 	
@@ -24,6 +26,16 @@ func _on_enemy_timer_timeout():
 	
 	var velocity = Vector2(randf_range(400.0, 800.0), 0.0)
 	enemy.linear_velocity = velocity.rotated(direction)
+
+
+func _input(event):
+	if event is InputEventMouseButton and event.is_action_pressed("M1"):
+		Input.set_custom_mouse_cursor(cat)
+		$laser_cat.play()
+
+	elif event is InputEventMouseButton and event.is_action_released("M1"):
+		Input.set_custom_mouse_cursor(laser)
+
 
 func _on_ship_player_player_hit():
 	eyelids.close_eyes(5)
