@@ -1,16 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://5afnnhdblb8p"]
+[gd_scene load_steps=13 format=3 uid="uid://5afnnhdblb8p"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_v40wr"]
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_ckptl"]
 [ext_resource type="PackedScene" uid="uid://cues4uwwmc7sa" path="res://scene_objects/menu_background.tscn" id="2_vuhek"]
-[ext_resource type="FontFile" uid="uid://caj4jhhpy0ha7" path="res://assets/fonts/dogicabold.ttf" id="3_5e6s0"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_b61lj"]
-[ext_resource type="FontFile" uid="uid://160hm44pryh4" path="res://assets/fonts/dogica.ttf" id="3_xem84"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_kcoe6"]
+[ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="4_msr17"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_hqrxp"]
 [ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="7_4bt73"]
 [ext_resource type="PackedScene" path="res://scene_objects/blip.tscn" id="10_erdpa"]
-[ext_resource type="PackedScene" path="res://scene_objects/settings.tscn" id="11_5pplk"]
+[ext_resource type="PackedScene" uid="uid://b05n1aavwqjfg" path="res://scene_objects/settings.tscn" id="11_5pplk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypyq"]
 bg_color = Color(0, 0, 0, 0)
@@ -18,7 +17,7 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.12549, 0.384314, 0.486275, 1)
+border_color = Color(0.0156863, 0.109804, 0.145098, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -35,6 +34,7 @@ shadow_size = 0
 shadow_offset = Vector2(0, 0)
 
 [node name="mainMenu" type="Node2D"]
+position = Vector2(0, -6)
 script = ExtResource("1_v40wr")
 
 [node name="backgroudMenu" parent="." instance=ExtResource("2_vuhek")]
@@ -61,7 +61,7 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="leftMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 
 [node name="buttonsContainer" type="VBoxContainer" parent="menuContainer/optionsContainer"]
@@ -69,7 +69,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="topMargin" type="MarginContainer" parent="menuContainer/optionsContainer/buttonsContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="PlayButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
@@ -79,7 +79,7 @@ size_flags_vertical = 0
 focus_next = NodePath("../SettingsButton")
 focus_previous = NodePath("../ExitButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_5e6s0")
+theme_override_fonts/font = ExtResource("4_msr17")
 theme_override_font_sizes/font_size = 75
 theme_override_styles/normal = ExtResource("3_b61lj")
 theme_override_styles/hover = ExtResource("4_kcoe6")
@@ -99,7 +99,7 @@ size_flags_vertical = 0
 focus_next = NodePath("../CreditsButton")
 focus_previous = NodePath("../PlayButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_xem84")
+theme_override_fonts/font = ExtResource("4_msr17")
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = ExtResource("3_b61lj")
 theme_override_styles/hover = ExtResource("4_kcoe6")
@@ -119,7 +119,7 @@ size_flags_vertical = 0
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../SettingsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_xem84")
+theme_override_fonts/font = ExtResource("4_msr17")
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = ExtResource("3_b61lj")
 theme_override_styles/hover = ExtResource("4_kcoe6")
@@ -140,7 +140,7 @@ size_flags_vertical = 0
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_xem84")
+theme_override_fonts/font = ExtResource("4_msr17")
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = ExtResource("3_b61lj")
 theme_override_styles/hover = ExtResource("4_kcoe6")
@@ -154,7 +154,7 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="rightMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 
 [node name="versionString" type="Label" parent="."]

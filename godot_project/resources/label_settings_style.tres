@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c1a3x0m4vyng8"]
+
+[ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_aiq6q"]
+
+[resource]
+font = ExtResource("1_aiq6q")
+font_size = 50
+font_color = Color(0, 0, 0.207843, 1)

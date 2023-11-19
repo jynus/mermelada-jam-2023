@@ -1,8 +1,9 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://tje0ygjwilaf"]
 
-[ext_resource type="FontFile" uid="uid://csfgtka180pkw" path="res://assets/fonts/dogicapixelbold.ttf" id="1_usnwb"]
+[ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_r1dg3"]
 
 [resource]
-font = ExtResource("1_usnwb")
+font = ExtResource("1_r1dg3")
 font_size = 100
+font_color = Color(0, 0, 0.0235294, 1)
 shadow_size = 0

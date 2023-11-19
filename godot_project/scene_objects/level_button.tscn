@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cogud6ervh4av"]
+[gd_scene load_steps=8 format=3 uid="uid://67l6jbbi516b"]
 
 [ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="1_6l6ud"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_g2lte"]

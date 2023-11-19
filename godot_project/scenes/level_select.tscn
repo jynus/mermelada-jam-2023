@@ -1,19 +1,20 @@
-[gd_scene load_steps=14 format=3 uid="uid://3dgtundptfy8"]
+[gd_scene load_steps=14 format=3 uid="uid://cclem6odxgdb7"]
 
 [ext_resource type="Script" path="res://scripts/level_select.gd" id="1_rs3vw"]
 [ext_resource type="LabelSettings" uid="uid://tje0ygjwilaf" path="res://resources/small_title_label_settings.tres" id="2_gj63y"]
-[ext_resource type="PackedScene" uid="uid://k635iu86fy37" path="res://scene_objects/menu_background.tscn" id="2_kxagj"]
-[ext_resource type="FontFile" uid="uid://160hm44pryh4" path="res://assets/fonts/dogica.ttf" id="3_5ksio"]
-[ext_resource type="Texture2D" uid="uid://6c7mk8gmqv7q" path="res://assets/sprites/left_arrow.webp" id="3_y6wxh"]
-[ext_resource type="Texture2D" uid="uid://bapxca70g57pj" path="res://assets/sprites/right_arrow.webp" id="4_cij7b"]
+[ext_resource type="PackedScene" uid="uid://cues4uwwmc7sa" path="res://scene_objects/menu_background.tscn" id="2_kxagj"]
+[ext_resource type="Texture2D" uid="uid://dmusjahebq0uf" path="res://assets/sprites/left_arrow.webp" id="3_y6wxh"]
+[ext_resource type="Texture2D" uid="uid://btn57nabcr1v4" path="res://assets/sprites/right_arrow.webp" id="4_cij7b"]
+[ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="4_rir8o"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="6_ua4t1"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="7_vep0o"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="8_lcgvi"]
-[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="9_6gfxd"]
+[ext_resource type="PackedScene" path="res://scene_objects/blip.tscn" id="9_6gfxd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hwumb"]
-font = ExtResource("3_5ksio")
+font = ExtResource("4_rir8o")
 font_size = 50
+font_color = Color(0, 0, 0.0705882, 1)
 shadow_size = 0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2gvb"]
@@ -78,6 +79,7 @@ layout_mode = 2
 
 [node name="previousWorldButton" type="Button" parent="menuContainer/HBoxContainer/CenterContainer"]
 unique_name_in_owner = true
+self_modulate = Color(0.576471, 0.576471, 0.576471, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m2gvb")
@@ -99,6 +101,7 @@ layout_mode = 2
 
 [node name="nextWorldButton" type="Button" parent="menuContainer/HBoxContainer/CenterContainer2"]
 unique_name_in_owner = true
+self_modulate = Color(0.576471, 0.576471, 0.576471, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxEmpty_m2gvb")
@@ -114,7 +117,7 @@ size_flags_vertical = 10
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_5ksio")
+theme_override_fonts/font = ExtResource("4_rir8o")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("6_ua4t1")
 theme_override_styles/hover = ExtResource("7_vep0o")
