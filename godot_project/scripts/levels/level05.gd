@@ -49,6 +49,7 @@ func game_over():
 	lose_level.show()
 
 func level_win():
+	Input.set_custom_mouse_cursor(null)
 	win_level.show()
 
 func _on_eyelids_fully_closed():
