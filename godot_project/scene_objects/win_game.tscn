@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcn6mv851ljvb"]
+
+[ext_resource type="Script" path="res://scripts/win_game.gd" id="1_2ptp0"]
+[ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_42mbi"]
+[ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="3_lybhq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fsc7s"]
+font = ExtResource("1_42mbi")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[node name="win_game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ptp0")
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="win_menu" type="HBoxContainer" parent="background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left_margin" type="MarginContainer" parent="background/win_menu"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background/win_menu"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="background/win_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_fsc7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="background/win_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Credits" type="Button" parent="background/win_menu/VBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_42mbi")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
+[node name="MarginContainer2" type="MarginContainer" parent="background/win_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Back_main_menu" type="Button" parent="background/win_menu/VBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_42mbi")
+theme_override_font_sizes/font_size = 50
+text = "Back to main menu"
+
+[node name="MarginContainer3" type="MarginContainer" parent="background/win_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="background/win_menu"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lybhq")
+volume_db = -10.0
+
+[connection signal="pressed" from="background/win_menu/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="background/win_menu/VBoxContainer/Back_main_menu" to="." method="_on_back_main_menu_pressed"]
