@@ -1,6 +1,6 @@
 keys,en,es
-GameTitle,English Title,Título
-VersionString,v0.0.1,v0.0.1
+GameTitle,Untitled Cat Game,Juego de gato sin título
+VersionString,v1.0,v1.0
 Play,Play,Jugar
 Settings,Settings,Configuración
 Credits,Credits,Créditos
@@ -14,5 +14,9 @@ Level select,Level select,Seleción de nivel
 Back to main menu,Back to main menu,Menú principal
 Return to game,Return to game,Volver al juego
 Pause,Pause,Pausa
-
-
+WINNER,YOU WON!,¡GANASTE!
+Next level,Next level,Siguiente nivel
+Repeat level,Retry level,Repetir nivel
+GAME OVER,GAME OVER,¡PERDISTE!
+Reset level,Reset level,Reiniciar nivel
+YOU WIN,YOU WIN,GANADOR
