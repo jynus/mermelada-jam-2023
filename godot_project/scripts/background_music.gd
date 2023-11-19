@@ -2,7 +2,7 @@ extends Node
 
 @onready var music_player : AudioStreamPlayer = %musicPlayer
 var playlist : Dictionary = {
-	"menu": preload("res://assets/music/Bit Bit Loop.mp3"),
+	"menu": preload("res://assets/music/whatx27s-in-the-biscuit-tin-154535.mp3"),
 	"pause": preload("res://assets/music/Winter Reflections.mp3"),
 	"game": preload("res://assets/music/Amazing Plan.mp3"),
 	"cute": preload("res://assets/music/cute-baby-animals-playful-cute-woodwinds-174354.mp3")

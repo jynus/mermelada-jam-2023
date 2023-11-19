@@ -1,3 +1,62 @@
-[gd_scene format=3 uid="uid://ugciq6ukr4o5"]
+[gd_scene load_steps=9 format=3 uid="uid://c0n22eswigaex"]
+
+[ext_resource type="Script" path="res://scripts/levels/level02.gd" id="1_lt30n"]
+[ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="1_mqqb5"]
+[ext_resource type="Texture2D" uid="uid://c5qk63a4648p5" path="res://assets/backgrounds/gato_1.png" id="2_jr3tu"]
+[ext_resource type="Texture2D" uid="uid://bu4ocks1yebcp" path="res://assets/backgrounds/fondo_menu_1.jpg" id="2_nqr52"]
+[ext_resource type="AudioStream" uid="uid://drltccy7c0nv0" path="res://assets/sfx/miss.wav" id="4_mai8t"]
+[ext_resource type="AudioStream" uid="uid://cfg377572odru" path="res://assets/sfx/Pickup_coin 6.wav" id="4_ut86s"]
+[ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="6_74l2a"]
+[ext_resource type="PackedScene" uid="uid://dcoobinnqd2hp" path="res://scene_objects/player_colirio.tscn" id="6_btcbf"]
 
 [node name="level" type="Node2D"]
+script = ExtResource("1_lt30n")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_nqr52")
+centered = false
+
+[node name="Gato1" type="Sprite2D" parent="."]
+position = Vector2(1003, 656)
+texture = ExtResource("2_jr3tu")
+metadata/_edit_lock_ = true
+
+[node name="PickupEffect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_ut86s")
+volume_db = -15.0
+bus = &"sfx"
+
+[node name="MissEffect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_mai8t")
+volume_db = -15.0
+bus = &"sfx"
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("1_mqqb5")]
+visible = false
+
+[node name="spawnLimitLeft" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(458, 711)
+gizmo_extents = 100.0
+
+[node name="spawnLimitRight" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1112, 728)
+gizmo_extents = 100.0
+
+[node name="Player" parent="." instance=ExtResource("6_btcbf")]
+unique_name_in_owner = true
+position = Vector2(792, 926)
+
+[node name="eyelids" parent="." instance=ExtResource("6_74l2a")]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]
+[connection signal="fully_closed" from="eyelids" to="." method="_on_eyelids_fully_closed"]

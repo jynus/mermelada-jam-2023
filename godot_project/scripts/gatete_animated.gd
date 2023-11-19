@@ -18,7 +18,6 @@ func _ready():
 func _on_timer_timeout():
 	var direction : Vector2 = (get_global_mouse_position() - ojos_center.global_position).normalized()
 	var target_position = ojos_movement * direction
-	print("target_position", target_position)
 	if tween:
 		tween.kill()
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)

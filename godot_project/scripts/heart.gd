@@ -2,7 +2,7 @@ extends Area2D
 
 @export var speed : float = -200
 @onready var sprite : Sprite2D = $Sprite
-@onready var color = Color(Color.SKY_BLUE)
+@onready var color = Globals.COLOR_GOOD
 
 signal missed
 signal touched
@@ -19,7 +19,7 @@ func _on_area_entered(area):
 	touched.emit()
 	queue_free()
 
-func _on_input_event(viewport, event, shape_idx):
+func _on_input_event(_viewport, event, _shape_idx):
 	if (event is InputEventMouseButton && event.pressed):
 		print("Clicked")
 		hide()

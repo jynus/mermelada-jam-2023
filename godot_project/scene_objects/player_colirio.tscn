@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcoobinnqd2hp"]
+
+[ext_resource type="Script" path="res://scripts/player_colirio.gd" id="1_6nuqp"]
+[ext_resource type="Texture2D" uid="uid://c7588ecjctp32" path="res://assets/sprites/ojo_1.png" id="2_sttnc"]
+
+[sub_resource type="Curve2D" id="Curve2D_a0fp2"]
+_data = {
+"points": PackedVector2Array(-57.5698, -131.706, 57.5698, 131.706, 223, 319, -130.237, 0.333686, 130.237, -0.333686, 488, 535, -51.4551, 135.147, 51.4551, -135.147, 758, 322)
+}
+point_count = 3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4boke"]
+radius = 36.0138
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_6nuqp")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-487, -535)
+curve = SubResource("Curve2D_a0fp2")
+metadata/_edit_lock_ = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(223, 319)
+rotation = 1.15871
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Area2D"]
+texture = ExtResource("2_sttnc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2(-8.99996, -0.0188906)
+shape = SubResource("CircleShape2D_4boke")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="area_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

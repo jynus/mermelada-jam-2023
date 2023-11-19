@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://8f4cg2fq6xid"]
+
+[ext_resource type="Script" path="res://scripts/Colirio.gd" id="1_prw2p"]
+[ext_resource type="Texture2D" uid="uid://dgfucm4mfhk7r" path="res://assets/sprites/gota.png" id="2_obov5"]
+
+[node name="Colirio" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_prw2p")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_obov5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(19, -115, -19, -76, -47, -5, -47, 62, -39, 91, -16, 114, 8, 114, 33, 99, 49, 50, 46, 10, 24, -44, 15, -90)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

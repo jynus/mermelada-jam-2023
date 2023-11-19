@@ -1,5 +1,9 @@
 extends Node2D
 
+class_name Eyelids
+
+signal fully_closed
+
 @export var percentage_eyelid_closed : float = 0
 @export var time_to_close_fully : float = 20
 @onready var upper_eyelid = $upper_eyelid
@@ -23,6 +27,8 @@ func close_eyes(amount: float = 10):
 	if tween:
 		tween.kill()
 	percentage_eyelid_closed = clamp(percentage_eyelid_closed + amount, 0, 100)
+	if percentage_eyelid_closed == 100:
+		fully_closed.emit()
 	var animation_time : float = time_to_close_fully / 100 * amount
 	var target_upper = original_pos_upper - original_pos_upper / 100 * percentage_eyelid_closed
 	var target_lower = original_pos_lower - (target_upper - original_pos_upper)

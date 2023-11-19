@@ -18,6 +18,7 @@ config/icon="res://assets/sprites/gatito.png"
 [autoload]
 
 BackgroundMusic="*res://scene_objects/background_music.tscn"
+Globals="*res://scripts/globals.gd"
 
 [display]
 
