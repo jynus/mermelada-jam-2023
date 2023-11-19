@@ -7,6 +7,7 @@ var laser = preload("res://assets/sprites/laserBlue08.png")
 var cat = preload("res://assets/sprites/huella.png")
 @onready var win_level = %win_level
 @onready var lose_level = %lose_level
+@onready var miss_effect = $miss_effect
 
 func _ready():
 	Input.set_custom_mouse_cursor(laser)
@@ -41,6 +42,7 @@ func _input(event):
 
 func _on_ship_player_player_hit():
 	eyelids.close_eyes(5)
+	miss_effect.play()
 
 func game_over():
 	Input.set_custom_mouse_cursor(null)
