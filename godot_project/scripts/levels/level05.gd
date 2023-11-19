@@ -3,8 +3,8 @@ extends Node
 @export var enemy_scene : PackedScene
 @onready var eyelids = $eyelids
 
-var laser = preload("res://assets/sprites/laserBlue08.png")
-var cat = preload("res://assets/sprites/huella.png")
+var laser = preload("res://assets/sprites/puntero_laser.png")
+var cat = preload("res://assets/sprites/huella_gato.png")
 @onready var win_level = %win_level
 @onready var lose_level = %lose_level
 @onready var miss_effect = $miss_effect
