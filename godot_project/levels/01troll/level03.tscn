@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckavc8eqedhf6"]
+
+[ext_resource type="Script" path="res://scripts/levels/level03.gd" id="1_2tov6"]
+[ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="2_b5bg6"]
+[ext_resource type="Texture2D" uid="uid://8gg2edlsd70l" path="res://assets/backgrounds/minijuego_2_nivel_4_fase_4_der.png" id="2_f6ku6"]
+[ext_resource type="Texture2D" uid="uid://jr7348pyamq1" path="res://assets/sprites/circular_sector.png" id="3_fvbxj"]
+[ext_resource type="Texture2D" uid="uid://c7588ecjctp32" path="res://assets/sprites/ojo_1.png" id="4_nkwdm"]
+[ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_jbmu1"]
+[ext_resource type="AudioStream" uid="uid://drltccy7c0nv0" path="res://assets/sfx/miss.wav" id="7_qvxu5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pacnh"]
+radius = 29.6835
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_2tov6")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_f6ku6")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Cornea" type="Sprite2D" parent="."]
+position = Vector2(625, 491)
+
+[node name="CircularSector" type="Marker2D" parent="Cornea"]
+unique_name_in_owner = true
+position = Vector2(-6, 23)
+
+[node name="DangerArea1" type="Sprite2D" parent="Cornea/CircularSector"]
+unique_name_in_owner = true
+position = Vector2(-10, 6)
+rotation = -0.910454
+texture = ExtResource("3_fvbxj")
+offset = Vector2(190, 7)
+
+[node name="DangerArea2" type="Sprite2D" parent="Cornea/CircularSector"]
+unique_name_in_owner = true
+position = Vector2(-10, 6)
+rotation = 0.851721
+texture = ExtResource("3_fvbxj")
+offset = Vector2(190, 7)
+
+[node name="KeepArea" type="Area2D" parent="Cornea/CircularSector"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="GoodAreaSprite" type="Sprite2D" parent="Cornea/CircularSector/KeepArea"]
+unique_name_in_owner = true
+texture = ExtResource("3_fvbxj")
+offset = Vector2(182, 7)
+
+[node name="KeepAreaCollision" type="CollisionPolygon2D" parent="Cornea/CircularSector/KeepArea"]
+polygon = PackedVector2Array(38, -23, 271, -141, 312, -73, 323, 29, 280, 158, 36, 34, 48, 6)
+
+[node name="Pupila" type="Sprite2D" parent="Cornea"]
+unique_name_in_owner = true
+scale = Vector2(3, 3)
+texture = ExtResource("4_nkwdm")
+offset = Vector2(77, 7)
+
+[node name="PlayerArea" type="Area2D" parent="Cornea/Pupila"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cornea/Pupila/PlayerArea"]
+position = Vector2(68.6667, 7.33333)
+shape = SubResource("CircleShape2D_pacnh")
+
+[node name="RandomMovementTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="eyelids" parent="." instance=ExtResource("5_jbmu1")]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="pauseMenu" parent="." instance=ExtResource("2_b5bg6")]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="errorPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_qvxu5")
+volume_db = -15.0
+
+[node name="OutsideTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="area_entered" from="Cornea/CircularSector/KeepArea" to="." method="_on_keep_area_area_entered"]
+[connection signal="area_exited" from="Cornea/CircularSector/KeepArea" to="." method="_on_keep_area_area_exited"]
+[connection signal="timeout" from="RandomMovementTimer" to="." method="_on_random_movement_timer_timeout"]
+[connection signal="fully_closed" from="eyelids" to="." method="_on_eyelids_fully_closed"]
+[connection signal="timeout" from="OutsideTimer" to="." method="_on_outside_timer_timeout"]
