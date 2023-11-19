@@ -18,3 +18,10 @@ func _physics_process(delta):
 
 func _on_player_player_hit():
 	eyelids.close_eyes(5)
+
+func game_over():
+	#TODO
+	get_tree().change_scene_to_file("res://scenes/level_select.tscn")
+
+func _on_eyelids_fully_closed():
+	game_over()

@@ -61,3 +61,4 @@ visible = false
 
 [connection signal="player_hit" from="PivotTorreta1/PlayerTurret1" to="." method="_on_player_player_hit"]
 [connection signal="player_hit" from="PivotTorreta2/PlayerTurret2" to="." method="_on_player_player_hit"]
+[connection signal="fully_closed" from="eyelids" to="." method="_on_eyelids_fully_closed"]
