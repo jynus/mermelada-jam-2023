@@ -8,6 +8,8 @@ var heart_scene : PackedScene = preload("res://scene_objects/heart.tscn")
 @onready var spawn_timer = %SpawnTimer
 @onready var win_level = %winLevel
 @onready var lose_level = %lose_level
+@onready var spawn_effect = %SpawnEffect
+@onready var missed_effect = %MissedEffect
 
 @export var eyes_close_pct_on_hit: float = 5
 func _ready():
@@ -23,6 +25,12 @@ func spawn_heart():
 	get_node("hearts").add_child(heart)
 	heart.position = Vector2(randi_range(heart_size.x, get_viewport_rect().size.x - heart_size.x),
 							 randi_range(heart_size.y, get_viewport_rect().size.y - heart_size.y))
+	heart.connect("missed", heart_missed)
+	spawn_effect.play()
+
+func heart_missed():
+	eyelids.close_eyes(5)
+	missed_effect.play()
 
 func _on_spawn_timer_timeout():
 	spawn_heart()
@@ -32,3 +40,9 @@ func level_win():
 
 func _on_win_timer_timeout():
 	level_win()
+
+func game_over():
+	lose_level.show()
+
+func _on_eyelids_fully_closed():
+	game_over()
