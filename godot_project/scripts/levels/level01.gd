@@ -6,6 +6,7 @@ var heart_scene : PackedScene = preload("res://scene_objects/heart.tscn")
 @onready var eyelids = %eyelids
 @onready var pickup_effect = %PickupEffect
 @onready var spawn_timer = %SpawnTimer
+@onready var win_level = %winLevel
 
 @export var eyes_close_pct_on_hit: float = 5
 func _ready():
@@ -24,3 +25,9 @@ func spawn_heart():
 
 func _on_spawn_timer_timeout():
 	spawn_heart()
+
+func level_win():
+	win_level.show()
+
+func _on_win_timer_timeout():
+	level_win()

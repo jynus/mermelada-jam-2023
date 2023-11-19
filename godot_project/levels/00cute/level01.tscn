@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfsrsnuoagr05"]
+[gd_scene load_steps=7 format=3 uid="uid://dfsrsnuoagr05"]
 
 [ext_resource type="Script" path="res://scripts/levels/level01.gd" id="1_5etku"]
 [ext_resource type="Texture2D" uid="uid://bu4ocks1yebcp" path="res://assets/backgrounds/fondo_menu_1.jpg" id="2_o2vf1"]
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="2_xvj2o"]
 [ext_resource type="AudioStream" uid="uid://cfg377572odru" path="res://assets/sfx/Pickup_coin 6.wav" id="3_g4ydw"]
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="3_yols6"]
+[ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="6_icso4"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_5etku")
@@ -22,14 +23,24 @@ bus = &"sfx"
 [node name="hearts" type="Node2D" parent="."]
 unique_name_in_owner = true
 
+[node name="SpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
 [node name="eyelids" parent="." instance=ExtResource("3_yols6")]
 unique_name_in_owner = true
 
 [node name="pauseMenu" parent="." instance=ExtResource("2_xvj2o")]
 visible = false
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="winLevel" parent="." instance=ExtResource("6_icso4")]
 unique_name_in_owner = true
+visible = false
+
+[node name="WinTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
 autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]

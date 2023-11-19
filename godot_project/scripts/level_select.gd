@@ -107,52 +107,52 @@ func level_select(level: String):
 	blip.play()
 	await blip.finished
 	Globals.current_level = level.trim_suffix(".remap")
-	load_current_level()
+	load_current_level(get_tree())
 
-func load_current_level():
+func load_current_level(tree):
 	_configFile.set_value("progress", "current_world", Globals.current_world)
 	_configFile.save(LEVELS_FILE_PATH)
 	_configFile.set_value("progress", "current_level", Globals.current_level)
 	_configFile.save(LEVELS_FILE_PATH)
 	var level_path : String = levels_path + "/" + Globals.current_world + "/" + Globals.current_level
 	print("loading level " + level_path)
-	get_tree().change_scene_to_file(level_path)
+	tree.change_scene_to_file(level_path)
 
-func load_next_level():
+func load_next_level(tree):
 	# TODO logic to calculate next level
 	var world_index = levels.keys().find(Globals.current_world)
 	if world_index == -1:
 		print("current_world not found")
 		# go to level select
-		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
+		tree.change_scene_to_file("res://scenes/level_select.tscn")
 	var level_index = levels[Globals.current_world].find(Globals.current_level)
 	if level_index == -1:
 		print("current_level not found")
 		if len(levels[Globals.current_world]) > 0:
 			# if the world has levels, go to the first one
 			Globals.current.world = levels[Globals.current_world][0]
-			load_current_level()
+			load_current_level(tree)
 		else:
 			# if the world has no levels, go to the level select screen
-			get_tree().change_scene_to_file("res://scenes/level_select.tscn")
-	elif len(levels[Globals.current_world]) >= level_index:
+			tree.change_scene_to_file("res://scenes/level_select.tscn")
+	elif level_index + 1 >= len(levels[Globals.current_world]):
 		# last level of current world
 		if world_index + 1 >= len(levels.keys()):
 			print("You won the last level")
-			get_tree().change_scene_to_file("res://scenes/win_game.tscn")
+			tree.change_scene_to_file("res://scenes/win_game.tscn")
 		else:
-			Globals.current.world = levels.keys()[world_index + 1]
-			print("Next world: ", Globals.current.world)
-			if len(levels[Globals.current.world]) == 0:
+			Globals.current_world = levels.keys()[world_index + 1]
+			print("Next world: ", Globals.current_world)
+			if len(levels[Globals.current_world]) == 0:
 				# next world has no levels, go to level select
-				get_tree().change_scene_to_file("res://scenes/level_select.tscn")
+				tree.change_scene_to_file("res://scenes/level_select.tscn")
 			else:
-				Globals.current_level = levels[Globals.current.world][0]
-				load_current_level()
+				Globals.current_level = levels[Globals.current_world][0]
+				load_current_level(tree)
 	else:
 		# we jump to the next level
 		Globals.current_level = levels[Globals.current_world][level_index + 1]
-		load_current_level()
+		load_current_level(tree)
 		
 func _process(_delta):
 	pass
