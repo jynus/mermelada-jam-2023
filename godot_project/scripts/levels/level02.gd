@@ -9,6 +9,8 @@ var spawn_object_level : PackedScene = preload("res://scene_objects/colirio.tscn
 @onready var miss_effect = %MissEffect
 @onready var eyelids: Eyelids = %eyelids
 @onready var colirios = %colirios
+@onready var win_level = %win_level
+@onready var lose_level = %lose_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,8 +43,14 @@ func _on_player_player_hit():
 	pickup_effect.play()
 
 func game_over():
-	# FIXME: show game over screen, pause, music, etc
-	get_tree().change_scene_to_file("res://scenes/level_select.tscn")
+	lose_level.show()
+
 
 func _on_eyelids_fully_closed():
 	game_over()
+
+func level_win():
+	win_level.show()
+
+func _on_win_timer_timeout():
+	level_win()

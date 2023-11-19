@@ -11,21 +11,20 @@ func _ready():
 func _process(delta):
 	if visible:
 		get_tree().paused = true
-		previous_music = BackgroundMusic.current_song
-		previous_music_offset = BackgroundMusic.stop()
+		BackgroundMusic.play_song("lose")
 
-func unpaused():
+func unpause():
 	get_tree().paused = false
 
 func _on_repeat_level_pressed():
 	click.play()
 	await click.finished
 	BackgroundMusic.play_song("pause")
-	unpaused()
+	unpause()
 	get_tree().reload_current_scene()
 
 func _on_back_main_menu_pressed():
 	click.play()
 	await click.finished
-	unpaused()
+	unpause()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

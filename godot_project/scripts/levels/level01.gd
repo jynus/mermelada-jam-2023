@@ -7,6 +7,7 @@ var heart_scene : PackedScene = preload("res://scene_objects/heart.tscn")
 @onready var pickup_effect = %PickupEffect
 @onready var spawn_timer = %SpawnTimer
 @onready var win_level = %winLevel
+@onready var lose_level = %lose_level
 
 @export var eyes_close_pct_on_hit: float = 5
 func _ready():
