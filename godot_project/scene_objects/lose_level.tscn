@@ -49,6 +49,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [node name="lose_level" type="Control"]
+process_mode = 3
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
