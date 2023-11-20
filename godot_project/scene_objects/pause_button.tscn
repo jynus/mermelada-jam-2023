@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8rmnm4fci7qk"]
+
+[ext_resource type="Script" path="res://scripts/pause_button.gd" id="1_a4k0y"]
+
+[node name="pause_button" type="Button"]
+offset_right = 68.0
+offset_bottom = 68.0
+text = "Pause"
+script = ExtResource("1_a4k0y")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -19,7 +19,6 @@ func _unhandled_input(event):
 			pause_game()
 
 func _ready():
-	Input.set_custom_mouse_cursor(null)
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	visible = false
 
@@ -50,6 +49,7 @@ func _on_main_menu_button_pressed():
 func pause_game():
 	previous_music = BackgroundMusic.current_song
 	previous_music_offset = BackgroundMusic.stop()
+	Input.set_custom_mouse_cursor(null)
 	if Input.get_connected_joypads().size() > 0:
 		return_button.grab_focus()
 	get_tree().paused = true
