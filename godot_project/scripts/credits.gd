@@ -1,8 +1,5 @@
 extends Node2D
 
-const TWITTER_URL : String = "https://twitter.com/jynus"
-const ITCHIO_URL : String = "https://jynus.itch.io"
-const WEB_URL : String = "https://jynus.com"
 @onready var blip : AudioStreamPlayer = $blip
 
 @onready var done_button : Button = %doneButton
@@ -33,12 +30,19 @@ func open_web_browser(url: String):
 
 func _on_twitter_button_pressed():
 	blip.play()
-	open_web_browser(TWITTER_URL)
+	open_web_browser("https://twitter.com/Eolohh")
+
+func _on_twitter_button_2_pressed():
+	blip.play()
+	open_web_browser("https://www.instagram.com/montes8ish")
 
 func _on_itchio_button_pressed():
 	blip.play()
-	open_web_browser(ITCHIO_URL)
+	open_web_browser("https://soundcloud.com/moogge")
 
 func _on_web_button_pressed():
 	blip.play()
-	open_web_browser(WEB_URL)
+	open_web_browser("https://jynus.itch.io")
+
+
+

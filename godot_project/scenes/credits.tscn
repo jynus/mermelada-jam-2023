@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmkt6lcuptbnf"]
+[gd_scene load_steps=14 format=3 uid="uid://bmkt6lcuptbnf"]
 
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="1_c4tx6"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_o3suw"]
@@ -8,9 +8,8 @@
 [ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="4_o4jsb"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="5_7nd3c"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="6_3f04u"]
-[ext_resource type="Texture2D" uid="uid://b8wrqre2aygvy" path="res://assets/sprites/twitter.png" id="7_5hy4m"]
-[ext_resource type="Texture2D" uid="uid://cp0ho3n68mll2" path="res://assets/sprites/itchio.png" id="8_0bwxl"]
-[ext_resource type="Texture2D" uid="uid://binuc0xykqv77" path="res://assets/sprites/web.png" id="9_g2a5j"]
+[ext_resource type="Texture2D" uid="uid://l8bjysq5lio1" path="res://assets/sprites/huella_gato.png" id="9_ab8vv"]
+[ext_resource type="Texture2D" uid="uid://djgrwok8arr3m" path="res://assets/sprites/Anemone_Games-1.webp" id="12_r22uy"]
 [ext_resource type="PackedScene" uid="uid://d1oyxvj1u5wof" path="res://scene_objects/blip.tscn" id="13_4wf1y"]
 [ext_resource type="PackedScene" uid="uid://dkl8574i60c3v" path="res://scene_objects/menu_button.tscn" id="13_25eo3"]
 
@@ -83,8 +82,9 @@ text = "[center][b]Eoloh[/b] (programación)
 [b]montes8ish[/b] (diseño gráfico)
 [b]moliwater[/b] (música y sonido)
 [b]jynus[/b] (programación)
- * Made with Godot 4 in 72 hours for the Mermelada Jam *
 
+[b]Duelo de miauradas by Anemone Games[/b]
+ * Hecho con Godot 4 en 72 horas para la Mermelada Jam *
 [/center]"
 
 [node name="rightMargin2" type="MarginContainer" parent="menuContainer/optionsContainer"]
@@ -101,6 +101,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+tooltip_text = "Twitter de Eoloh"
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -111,7 +112,7 @@ theme_override_styles/hover = ExtResource("5_7nd3c")
 theme_override_styles/pressed = ExtResource("6_3f04u")
 theme_override_styles/disabled = ExtResource("4_3veic")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
-icon = ExtResource("7_5hy4m")
+icon = ExtResource("9_ab8vv")
 icon_alignment = 1
 
 [node name="twitterButton2" type="Button" parent="menuContainer/optionsContainer/socialButtonContainer"]
@@ -119,6 +120,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+tooltip_text = "Instagram de montes8ish"
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -129,7 +131,7 @@ theme_override_styles/hover = ExtResource("5_7nd3c")
 theme_override_styles/pressed = ExtResource("6_3f04u")
 theme_override_styles/disabled = ExtResource("4_3veic")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
-icon = ExtResource("7_5hy4m")
+icon = ExtResource("9_ab8vv")
 icon_alignment = 1
 
 [node name="itchioButton" type="Button" parent="menuContainer/optionsContainer/socialButtonContainer"]
@@ -137,6 +139,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+tooltip_text = "SoundCloud de moogge"
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -147,7 +150,7 @@ theme_override_styles/hover = ExtResource("5_7nd3c")
 theme_override_styles/pressed = ExtResource("6_3f04u")
 theme_override_styles/disabled = ExtResource("4_3veic")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
-icon = ExtResource("8_0bwxl")
+icon = ExtResource("9_ab8vv")
 icon_alignment = 1
 
 [node name="webButton" type="Button" parent="menuContainer/optionsContainer/socialButtonContainer"]
@@ -155,6 +158,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+tooltip_text = "Itch.io de jynus"
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -165,7 +169,7 @@ theme_override_styles/hover = ExtResource("5_7nd3c")
 theme_override_styles/pressed = ExtResource("6_3f04u")
 theme_override_styles/disabled = ExtResource("4_3veic")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
-icon = ExtResource("9_g2a5j")
+icon = ExtResource("9_ab8vv")
 icon_alignment = 1
 
 [node name="rightMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
@@ -185,8 +189,13 @@ layout_mode = 2
 
 [node name="blip" parent="." instance=ExtResource("13_4wf1y")]
 
+[node name="AnemoneGames-1" type="Sprite2D" parent="."]
+position = Vector2(303, 181)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_r22uy")
+
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/twitterButton" to="." method="_on_twitter_button_pressed"]
-[connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/twitterButton2" to="." method="_on_twitter_button_pressed"]
+[connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/twitterButton2" to="." method="_on_twitter_button_2_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/itchioButton" to="." method="_on_itchio_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/webButton" to="." method="_on_web_button_pressed"]
 [connection signal="pressed" from="menuContainer/doneButton" to="." method="_on_done_button_pressed"]
