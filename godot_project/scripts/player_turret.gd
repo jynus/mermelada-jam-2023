@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var timer = $Timer
+@onready var sprite : Sprite2D = $Path2D/PathFollow2D/Area2D/Sprite2D
 
 signal player_hit
 var stopped: bool = false
@@ -11,6 +12,7 @@ var stopped: bool = false
 @onready var particle_effect = %ParticleEffect
 
 func _ready():
+	sprite.self_modulate = Globals.COLOR_GOOD
 	particle_effect.color = Globals.COLOR_BAD
 
 func _process(delta):
