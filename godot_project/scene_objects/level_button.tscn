@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://67l6jbbi516b"]
 
-[ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="1_6l6ud"]
+[ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_hpc2s"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_g2lte"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_o6xu0"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_faphc"]
@@ -33,8 +33,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(0.431373, 0.427451, 0.427451, 1)
-theme_override_fonts/font = ExtResource("1_6l6ud")
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("1_hpc2s")
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = ExtResource("3_g2lte")
 theme_override_styles/hover = ExtResource("4_o6xu0")
 theme_override_styles/pressed = ExtResource("5_faphc")
