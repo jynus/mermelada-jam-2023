@@ -1,7 +1,8 @@
 extends Node2D
 
 @export var animation_time : float = 0.5
-@export var rotation_speed_degrees : float = 90
+@export var rotation_speed_degrees : float = 60
+@export var random_rotation_speed: float = 10
 @onready var pupila = %Pupila
 @onready var circular_sector = %CircularSector
 @onready var eyelids = %eyelids
@@ -39,7 +40,7 @@ func rotate_pupila(angle: float):
 	tween.tween_property(pupila, "rotation_degrees", target_degrees, animation_time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 
 func _on_random_movement_timer_timeout():
-	rotate_pupila(randf_range(-30, 30))
+	rotate_pupila(randf_range(-random_rotation_speed / 2, random_rotation_speed / 2))
 
 func outside():
 	outside_timer.start()
@@ -73,3 +74,9 @@ func level_win():
 
 func _on_win_timer_timeout():
 	level_win()
+
+
+func _on_increase_difficulty_timer_timeout():
+	random_rotation_speed += 15
+	animation_time -= 0.05
+	rotation_speed_degrees += 10

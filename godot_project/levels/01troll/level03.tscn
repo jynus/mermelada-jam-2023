@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckavc8eqedhf6"]
+[gd_scene load_steps=13 format=3 uid="uid://ckavc8eqedhf6"]
 
 [ext_resource type="Script" path="res://scripts/levels/level03.gd" id="1_2tov6"]
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="2_b5bg6"]
@@ -6,15 +6,32 @@
 [ext_resource type="Texture2D" uid="uid://jr7348pyamq1" path="res://assets/sprites/circular_sector.png" id="3_fvbxj"]
 [ext_resource type="Texture2D" uid="uid://c7588ecjctp32" path="res://assets/sprites/ojo_1.png" id="4_nkwdm"]
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_jbmu1"]
-[ext_resource type="AudioStream" uid="uid://drltccy7c0nv0" path="res://assets/sfx/miss.wav" id="7_qvxu5"]
+[ext_resource type="AudioStream" uid="uid://cp4rxiedr6f88" path="res://assets/sfx/hit.wav" id="7_j35cr"]
 [ext_resource type="PackedScene" uid="uid://4mjf4hysg5a0" path="res://scene_objects/lose_level.tscn" id="8_fgbep"]
 [ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="9_1pdko"]
+
+[sub_resource type="Gradient" id="Gradient_4376e"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.454212, 0.78022)
+colors = PackedColorArray(1, 1, 1, 1, 0.793518, 0.793518, 0.793518, 1, 0.552956, 0.552956, 0.552955, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aygo6"]
+gradient = SubResource("Gradient_4376e")
+width = 1080
+height = 1080
+fill = 1
+fill_from = Vector2(0.504274, 0.478632)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pacnh"]
 radius = 29.6835
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_2tov6")
+
+[node name="BackgroundEye" type="Sprite2D" parent="."]
+position = Vector2(608, 509)
+scale = Vector2(0.8, 1)
+texture = SubResource("GradientTexture2D_aygo6")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_f6ku6")
@@ -82,8 +99,7 @@ metadata/_edit_lock_ = true
 
 [node name="errorPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("7_qvxu5")
-volume_db = -15.0
+stream = ExtResource("7_j35cr")
 
 [node name="OutsideTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -101,9 +117,14 @@ unique_name_in_owner = true
 wait_time = 60.0
 autostart = true
 
+[node name="IncreaseDifficultyTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="area_entered" from="Cornea/CircularSector/KeepArea" to="." method="_on_keep_area_area_entered"]
 [connection signal="area_exited" from="Cornea/CircularSector/KeepArea" to="." method="_on_keep_area_area_exited"]
 [connection signal="timeout" from="RandomMovementTimer" to="." method="_on_random_movement_timer_timeout"]
 [connection signal="fully_closed" from="eyelids" to="." method="_on_eyelids_fully_closed"]
 [connection signal="timeout" from="OutsideTimer" to="." method="_on_outside_timer_timeout"]
 [connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="IncreaseDifficultyTimer" to="." method="_on_increase_difficulty_timer_timeout"]
