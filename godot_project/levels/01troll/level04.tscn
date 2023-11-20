@@ -105,7 +105,7 @@ autostart = true
 
 [node name="IncreseDifficultyTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 6.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="player_hit" from="PivotTorreta1/PlayerTurret1" to="." method="_on_player_player_hit"]
