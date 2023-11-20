@@ -58,3 +58,8 @@ func _on_eyelids_fully_closed():
 
 func _on_win_timer_timeout():
 	level_win()
+
+
+func _on_ship_player_player_out():
+	eyelids.close_eyes(50)
+	miss_effect.play()
