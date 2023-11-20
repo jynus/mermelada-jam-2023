@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckavc8eqedhf6"]
+[gd_scene load_steps=16 format=3 uid="uid://ckavc8eqedhf6"]
 
 [ext_resource type="Script" path="res://scripts/levels/level03.gd" id="1_2tov6"]
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="2_b5bg6"]
@@ -24,6 +24,68 @@ fill_from = Vector2(0.504274, 0.478632)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pacnh"]
 radius = 29.6835
+
+[sub_resource type="Animation" id="Animation_1b3s5"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2qgod"]
+resource_name = "hit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(2.869, 0.96), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.788235, 0, 0, 1), Color(1, 1, 1, 1), Color(0.788235, 0, 0, 1), Color(1, 1, 1, 1), Color(0.788235, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmc5d"]
+_data = {
+"RESET": SubResource("Animation_1b3s5"),
+"hit": SubResource("Animation_2qgod")
+}
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_2tov6")
@@ -84,6 +146,11 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cornea/Pupila/PlayerArea"]
 position = Vector2(68.6667, 7.33333)
 shape = SubResource("CircleShape2D_pacnh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cornea/Pupila"]
+libraries = {
+"": SubResource("AnimationLibrary_fmc5d")
+}
 
 [node name="RandomMovementTimer" type="Timer" parent="."]
 wait_time = 0.5

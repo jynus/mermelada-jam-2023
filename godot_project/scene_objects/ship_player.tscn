@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://fj31xk4umjbh" path="res://assets/sprites/ojo_final_1.png" id="2_qic6d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u3pyr"]
-radius = 31.5
-height = 202.932
+radius = 34.234
+height = 233.927
 
 [sub_resource type="Animation" id="Animation_kw5f8"]
 resource_name = "RESET"
@@ -78,7 +78,7 @@ script = ExtResource("1_1igmj")
 texture = ExtResource("2_qic6d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-16, -3)
+position = Vector2(-15, -1)
 rotation = 0.122173
 shape = SubResource("CapsuleShape2D_u3pyr")
 

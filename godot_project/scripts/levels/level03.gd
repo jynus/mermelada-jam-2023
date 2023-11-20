@@ -45,6 +45,7 @@ func _on_random_movement_timer_timeout():
 func outside():
 	outside_timer.start()
 	error_player.play()
+	$Cornea/Pupila/AnimationPlayer.play("hit")
 	eyelids.close_eyes(20)
 	
 
