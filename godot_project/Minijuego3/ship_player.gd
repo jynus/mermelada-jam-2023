@@ -8,3 +8,8 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	player_hit.emit()
 	$AnimationPlayer.play("hit")
+
+
+func _on_borde_eye_area_entered(area):
+	player_hit.emit()
+	$AnimationPlayer.play("hit")

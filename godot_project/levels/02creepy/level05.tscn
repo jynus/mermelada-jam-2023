@@ -48,6 +48,7 @@ position = Vector2(1003, 90)
 rotation = 0.456232
 
 [node name="Enemy_timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [node name="eyelids" parent="." instance=ExtResource("4_f3hrf")]
@@ -79,6 +80,7 @@ autostart = true
 stream = ExtResource("10_ingrs")
 volume_db = -15.0
 
+[connection signal="area_entered" from="borde_eye" to="Ship_player" method="_on_borde_eye_area_entered"]
 [connection signal="player_hit" from="Ship_player" to="." method="_on_ship_player_player_hit"]
 [connection signal="timeout" from="Enemy_timer" to="." method="_on_enemy_timer_timeout"]
 [connection signal="fully_closed" from="eyelids" to="." method="_on_eyelids_fully_closed"]
