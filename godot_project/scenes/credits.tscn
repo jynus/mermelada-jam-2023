@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://b8wrqre2aygvy" path="res://assets/sprites/twitter.png" id="7_5hy4m"]
 [ext_resource type="Texture2D" uid="uid://cp0ho3n68mll2" path="res://assets/sprites/itchio.png" id="8_0bwxl"]
 [ext_resource type="Texture2D" uid="uid://binuc0xykqv77" path="res://assets/sprites/web.png" id="9_g2a5j"]
-[ext_resource type="PackedScene" path="res://scene_objects/blip.tscn" id="13_4wf1y"]
-[ext_resource type="PackedScene" path="res://scene_objects/menu_button.tscn" id="13_25eo3"]
+[ext_resource type="PackedScene" uid="uid://d1oyxvj1u5wof" path="res://scene_objects/blip.tscn" id="13_4wf1y"]
+[ext_resource type="PackedScene" uid="uid://dkl8574i60c3v" path="res://scene_objects/menu_button.tscn" id="13_25eo3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hugtt"]
 bg_color = Color(0, 0, 0, 0)

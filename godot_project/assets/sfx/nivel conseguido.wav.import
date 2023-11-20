@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpkedvs317ic"
+path="res://.godot/imported/nivel conseguido.wav-d87f42820d4a1eceed37c64721f14946.sample"
+
+[deps]
+
+source_file="res://assets/sfx/nivel conseguido.wav"
+dest_files=["res://.godot/imported/nivel conseguido.wav-d87f42820d4a1eceed37c64721f14946.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

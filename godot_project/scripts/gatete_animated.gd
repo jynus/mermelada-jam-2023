@@ -7,6 +7,7 @@ extends Area2D
 @onready var timer = %Timer
 @onready var animation_player = %AnimationPlayer
 @onready var love_animation = %LoveAnimation
+@onready var cat_player = %CatPlayer
 
 var tween: Tween
 
@@ -29,8 +30,10 @@ func _on_input_event(viewport, event, shape_idx):
 		print("Yes, you can pet the cat")
 		animation_player.speed_scale = 2
 		love_animation.emitting = true
+		cat_player.play()
 
 
 func _on_mouse_exited():
 	animation_player.speed_scale = 1
 	love_animation.emitting = false
+	cat_player.stop()

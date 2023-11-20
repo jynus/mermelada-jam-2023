@@ -10,6 +10,7 @@ var cat = preload("res://assets/sprites/huella_gato.png")
 @onready var miss_effect = $miss_effect
 
 func _ready():
+	BackgroundMusic.play_song("creepy")
 	Input.set_custom_mouse_cursor(laser)
 
 func _physics_process(_delta):

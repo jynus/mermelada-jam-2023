@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://br7jp4ax2dybo"]
+[gd_scene load_steps=9 format=3 uid="uid://br7jp4ax2dybo"]
 
 [ext_resource type="Script" path="res://scripts/gatete_animated.gd" id="1_3vca6"]
 [ext_resource type="Texture2D" uid="uid://bcxjw2lr54qbq" path="res://assets/sprites/cola.png" id="1_uudtv"]
 [ext_resource type="Texture2D" uid="uid://b4p7lgpo1pk0n" path="res://assets/sprites/gatito.png" id="2_s3awr"]
 [ext_resource type="Texture2D" uid="uid://bl303574v7cef" path="res://assets/sprites/ojos_gatete.png" id="3_55grs"]
 [ext_resource type="Texture2D" uid="uid://crb5fswjernp3" path="res://assets/sprites/corazon_1.png" id="5_pquvh"]
+[ext_resource type="AudioStream" uid="uid://c6uvof3w3bhgf" path="res://assets/sfx/volumen.wav" id="6_5fwdx"]
 
 [sub_resource type="Animation" id="Animation_jxp73"]
 resource_name = "cola_movement"
@@ -83,6 +84,11 @@ initial_velocity_min = 100.0
 initial_velocity_max = 100.0
 scale_amount_min = 0.0
 scale_amount_max = 0.5
+
+[node name="CatPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_5fwdx")
+bus = &"sfx"
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/heart.gd" id="1_y8ffb"]
 [ext_resource type="Texture2D" uid="uid://crb5fswjernp3" path="res://assets/sprites/corazon_1.png" id="2_d1elb"]
-[ext_resource type="AudioStream" uid="uid://cfg377572odru" path="res://assets/sfx/Pickup_coin 6.wav" id="3_fskhc"]
+[ext_resource type="AudioStream" uid="uid://bjq5wlr6vrwam" path="res://assets/sfx/corazones.wav" id="3_rp27s"]
 
 [node name="Heart" type="Area2D"]
 collision_layer = 4
@@ -18,8 +18,8 @@ position = Vector2(-41, -64)
 polygon = PackedVector2Array(-65, 117, 63, 205, 155, 104, 186, 24, 177, -25, 151, -61, 100, -77, 67, -68, 40, -47, 16, -67, -20, -75, -65, -63, -93, -30, -105, 26)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_fskhc")
-volume_db = -15.0
+stream = ExtResource("3_rp27s")
+bus = &"sfx"
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 2.0

@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="4_msr17"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_hqrxp"]
 [ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="7_4bt73"]
-[ext_resource type="PackedScene" path="res://scene_objects/blip.tscn" id="10_erdpa"]
+[ext_resource type="PackedScene" uid="uid://d1oyxvj1u5wof" path="res://scene_objects/blip.tscn" id="10_erdpa"]
 [ext_resource type="PackedScene" uid="uid://b05n1aavwqjfg" path="res://scene_objects/settings.tscn" id="11_5pplk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypyq"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0g67um1gwaeg"
+path="res://.godot/imported/loop transicion.ogg-5d3dace95da17a9d2856632eb7934426.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/loop transicion.ogg"
+dest_files=["res://.godot/imported/loop transicion.ogg-5d3dace95da17a9d2856632eb7934426.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfsrsnuoagr05"]
+[gd_scene load_steps=10 format=3 uid="uid://dfsrsnuoagr05"]
 
 [ext_resource type="Script" path="res://scripts/levels/level01.gd" id="1_5etku"]
 [ext_resource type="Texture2D" uid="uid://bqxgg7w2t4xsg" path="res://assets/backgrounds/minijuego_1.jpg" id="2_osq1k"]
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="2_xvj2o"]
-[ext_resource type="AudioStream" uid="uid://cfg377572odru" path="res://assets/sfx/Pickup_coin 6.wav" id="3_g4ydw"]
+[ext_resource type="AudioStream" uid="uid://cp4rxiedr6f88" path="res://assets/sfx/hit.wav" id="3_w4k3i"]
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="3_yols6"]
-[ext_resource type="AudioStream" uid="uid://drltccy7c0nv0" path="res://assets/sfx/miss.wav" id="4_dfttp"]
 [ext_resource type="AudioStream" uid="uid://4hk4nb0sme7s" path="res://assets/sfx/shari_meow.mp3" id="4_sbg2i"]
 [ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="6_icso4"]
 [ext_resource type="PackedScene" uid="uid://4mjf4hysg5a0" path="res://scene_objects/lose_level.tscn" id="7_utrjs"]
@@ -13,6 +12,7 @@
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fn3ac"]
 streams_count = 1
 random_pitch = 2.0
+random_volume_offset_db = 4.0
 stream_0/stream = ExtResource("4_sbg2i")
 stream_0/weight = 1.0
 
@@ -23,22 +23,15 @@ script = ExtResource("1_5etku")
 texture = ExtResource("2_osq1k")
 centered = false
 
-[node name="PickupEffect" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("3_g4ydw")
-volume_db = -15.0
-bus = &"sfx"
-
 [node name="MissedEffect" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("4_dfttp")
-volume_db = -15.0
+stream = ExtResource("3_w4k3i")
 bus = &"sfx"
 
 [node name="SpawnEffect" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_fn3ac")
-volume_db = -15.0
+volume_db = -10.0
 bus = &"sfx"
 
 [node name="hearts" type="Node2D" parent="."]

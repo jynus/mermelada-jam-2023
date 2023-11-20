@@ -2,13 +2,13 @@ extends Node
 
 @onready var music_player : AudioStreamPlayer = %musicPlayer
 var playlist : Dictionary = {
-	"menu": preload("res://assets/music/whatx27s-in-the-biscuit-tin-154535.mp3"),
-	"pause": preload("res://assets/music/Winter Reflections.mp3"),
-	"game": preload("res://assets/music/Amazing Plan.mp3"),
-	"cute": preload("res://assets/music/cute-baby-animals-playful-cute-woodwinds-174354.mp3"),
-	"troll": preload("res://assets/music/Krampus Workshop.mp3"),
-	"win": preload("res://assets/music/whatx27s-in-the-biscuit-tin-154535.mp3"),
-	"lose": preload("res://assets/music/whatx27s-in-the-biscuit-tin-154535.mp3")}
+	"menu": preload("res://assets/music/loop menu.ogg"),
+	"pause": preload("res://assets/music/loop menu.ogg"),
+	"cute": preload("res://assets/music/loop cuqui.ogg"),
+	"troll": preload("res://assets/music/loop troll.ogg"),
+	"creepy": preload("res://assets/music/loop creepy.ogg"),
+	"win": preload("res://assets/music/loop menu.ogg"),
+	"lose": preload("res://assets/music/loop transicion.ogg")}
 
 var _current_song : String
 @export var current_song : String :
@@ -22,7 +22,7 @@ func _set_current_song(value):
 	music_player.stream = playlist[current_song]
 
 func _ready():
-	music_player.volume_db = -20
+	music_player.volume_db = -5
 
 func _process(_delta):
 	pass
