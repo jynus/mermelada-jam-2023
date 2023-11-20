@@ -26,7 +26,6 @@ func click_heart():
 	$DespawnTimer.paused = true
 	clicked_effect.emitting = true
 	sprite.hide()
-	$CollisionPolygon2D.disabled = true
 	$AudioStreamPlayer.play()
 	destroy_timer.start()
 
