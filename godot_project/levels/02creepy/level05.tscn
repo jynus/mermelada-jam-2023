@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbtwagkfa8wxg"]
+[gd_scene load_steps=13 format=3 uid="uid://cbtwagkfa8wxg"]
 
 [ext_resource type="Script" path="res://scripts/levels/level05.gd" id="1_nacv0"]
-[ext_resource type="Texture2D" uid="uid://cufm6i4dfv0wb" path="res://Minijuego3/one_eye.png" id="2_48dd3"]
 [ext_resource type="PackedScene" uid="uid://crpai8uhbtnl8" path="res://scene_objects/ship_enemy.tscn" id="2_ked14"]
+[ext_resource type="Texture2D" uid="uid://bu4ocks1yebcp" path="res://assets/backgrounds/fondo_menu_1.jpg" id="3_c7m6f"]
 [ext_resource type="PackedScene" uid="uid://3j12oompt7pk" path="res://scene_objects/ship_player.tscn" id="3_nkvcf"]
+[ext_resource type="Texture2D" uid="uid://c7lqwmtnehmt7" path="res://assets/backgrounds/minijuego_ojo_sauron_nivel_5_base_1.png" id="3_revny"]
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="4_f3hrf"]
 [ext_resource type="AudioStream" uid="uid://4hk4nb0sme7s" path="res://assets/sfx/shari_meow.mp3" id="5_gsi7m"]
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="7_qp8kp"]
@@ -21,10 +22,13 @@ point_count = 5
 script = ExtResource("1_nacv0")
 enemy_scene = ExtResource("2_ked14")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(962, 540)
+texture = ExtResource("3_c7m6f")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(962, 540)
-scale = Vector2(0.265399, 0.266536)
-texture = ExtResource("2_48dd3")
+texture = ExtResource("3_revny")
 metadata/_edit_lock_ = true
 
 [node name="borde_eye" type="Area2D" parent="."]

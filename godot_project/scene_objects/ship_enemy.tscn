@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://crpai8uhbtnl8"]
 
 [ext_resource type="Script" path="res://Minijuego3/ship_enemy.gd" id="1_tcrsa"]
-[ext_resource type="Texture2D" uid="uid://b3v376r74mn55" path="res://Minijuego3/spaceShips_001.png" id="2_l8nmq"]
+[ext_resource type="Texture2D" uid="uid://1lgd312cgq0g" path="res://assets/sprites/mosca_enemigo_1.png" id="2_a1ps3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4wil2"]
-radius = 36.0
+radius = 30.0
 
 [node name="Ship_enemy" type="RigidBody2D" groups=["enemys"]]
 collision_layer = 4
@@ -13,7 +13,7 @@ gravity_scale = 0.0
 script = ExtResource("1_tcrsa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_l8nmq")
+texture = ExtResource("2_a1ps3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4wil2")
