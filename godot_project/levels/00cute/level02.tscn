@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0n22eswigaex"]
+[gd_scene load_steps=12 format=3 uid="uid://c0n22eswigaex"]
 
 [ext_resource type="Script" path="res://scripts/levels/level02.gd" id="1_lt30n"]
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="1_mqqb5"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cp4rxiedr6f88" path="res://assets/sfx/hit.wav" id="5_u5dje"]
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="6_74l2a"]
 [ext_resource type="PackedScene" uid="uid://dcoobinnqd2hp" path="res://scene_objects/player_colirio.tscn" id="6_btcbf"]
+[ext_resource type="PackedScene" uid="uid://c8rmnm4fci7qk" path="res://scene_objects/pause_button.tscn" id="8_b6tx2"]
 [ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="9_ujf7m"]
 [ext_resource type="PackedScene" uid="uid://4mjf4hysg5a0" path="res://scene_objects/lose_level.tscn" id="10_h4a44"]
 
@@ -58,6 +59,8 @@ position = Vector2(792, 926)
 
 [node name="eyelids" parent="." instance=ExtResource("6_74l2a")]
 unique_name_in_owner = true
+
+[node name="pause_button" parent="." instance=ExtResource("8_b6tx2")]
 
 [node name="pauseMenu" parent="." instance=ExtResource("1_mqqb5")]
 visible = false

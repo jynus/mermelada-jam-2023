@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfsrsnuoagr05"]
+[gd_scene load_steps=11 format=3 uid="uid://dfsrsnuoagr05"]
 
 [ext_resource type="Script" path="res://scripts/levels/level01.gd" id="1_5etku"]
 [ext_resource type="Texture2D" uid="uid://bqxgg7w2t4xsg" path="res://assets/backgrounds/minijuego_1.jpg" id="2_osq1k"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cp4rxiedr6f88" path="res://assets/sfx/hit.wav" id="3_w4k3i"]
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="3_yols6"]
 [ext_resource type="AudioStream" uid="uid://4hk4nb0sme7s" path="res://assets/sfx/shari_meow.mp3" id="4_sbg2i"]
+[ext_resource type="PackedScene" uid="uid://c8rmnm4fci7qk" path="res://scene_objects/pause_button.tscn" id="6_cp5uk"]
 [ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="6_icso4"]
 [ext_resource type="PackedScene" uid="uid://4mjf4hysg5a0" path="res://scene_objects/lose_level.tscn" id="7_utrjs"]
 
@@ -44,6 +45,8 @@ autostart = true
 
 [node name="eyelids" parent="." instance=ExtResource("3_yols6")]
 unique_name_in_owner = true
+
+[node name="pause_button" parent="." instance=ExtResource("6_cp5uk")]
 
 [node name="pauseMenu" parent="." instance=ExtResource("2_xvj2o")]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://drqqljbvmspgk"]
+[gd_scene load_steps=12 format=3 uid="uid://drqqljbvmspgk"]
 
 [ext_resource type="Script" path="res://scripts/levels/level04.gd" id="1_76uvf"]
 [ext_resource type="Texture2D" uid="uid://dpc0vbicqbfla" path="res://assets/backgrounds/minijuego_2_nivel_4_fase_1_2.png" id="2_6hpqr"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="4_isd8q"]
 [ext_resource type="PackedScene" uid="uid://b572jyegbcwyo" path="res://scene_objects/player_turret.tscn" id="4_q5pjy"]
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_lr0bt"]
+[ext_resource type="PackedScene" uid="uid://c8rmnm4fci7qk" path="res://scene_objects/pause_button.tscn" id="6_dxmby"]
 [ext_resource type="PackedScene" uid="uid://4mjf4hysg5a0" path="res://scene_objects/lose_level.tscn" id="7_4b6fi"]
 [ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="8_a32t1"]
 
@@ -81,6 +82,8 @@ unique_name_in_owner = true
 [node name="eyelids" parent="." instance=ExtResource("5_lr0bt")]
 unique_name_in_owner = true
 metadata/_edit_lock_ = true
+
+[node name="pause_button" parent="." instance=ExtResource("6_dxmby")]
 
 [node name="pauseMenu" parent="." instance=ExtResource("4_isd8q")]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ckavc8eqedhf6"]
+[gd_scene load_steps=17 format=3 uid="uid://ckavc8eqedhf6"]
 
 [ext_resource type="Script" path="res://scripts/levels/level03.gd" id="1_2tov6"]
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="2_b5bg6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jr7348pyamq1" path="res://assets/sprites/circular_sector.png" id="3_fvbxj"]
 [ext_resource type="Texture2D" uid="uid://c7588ecjctp32" path="res://assets/sprites/ojo_1.png" id="4_nkwdm"]
 [ext_resource type="PackedScene" uid="uid://dwj5pxiyuylty" path="res://scene_objects/eyelids.tscn" id="5_jbmu1"]
+[ext_resource type="PackedScene" uid="uid://c8rmnm4fci7qk" path="res://scene_objects/pause_button.tscn" id="6_u11tc"]
 [ext_resource type="AudioStream" uid="uid://cp4rxiedr6f88" path="res://assets/sfx/hit.wav" id="7_j35cr"]
 [ext_resource type="PackedScene" uid="uid://4mjf4hysg5a0" path="res://scene_objects/lose_level.tscn" id="8_fgbep"]
 [ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="9_1pdko"]
@@ -159,6 +160,8 @@ autostart = true
 [node name="eyelids" parent="." instance=ExtResource("5_jbmu1")]
 unique_name_in_owner = true
 metadata/_edit_lock_ = true
+
+[node name="pause_button" parent="." instance=ExtResource("6_u11tc")]
 
 [node name="pauseMenu" parent="." instance=ExtResource("2_b5bg6")]
 visible = false
