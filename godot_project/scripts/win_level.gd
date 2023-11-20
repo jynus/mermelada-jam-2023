@@ -5,9 +5,11 @@ extends Control
 @onready var repeat_level = %Repeat_level
 @onready var back_main_menu = %back_main_menu
 @onready var enable_buttons_timer = %EnableButtonsTimer
+@onready var win_fx = %WinFX
 
 var previous_music : String
 var previous_music_offset : float = 0
+var previous_music_level : float
 var was_visible : bool = false
 
 func _ready():
@@ -18,7 +20,10 @@ func _process(delta):
 		was_visible = true
 		enable_buttons_timer.start()
 		get_tree().paused = true
+		previous_music_level = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("music"))
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), -15)
 		BackgroundMusic.play_song("win")
+		win_fx.play()
 
 func unpause():
 	visible = false
@@ -48,3 +53,7 @@ func _on_enable_buttons_timer_timeout():
 	next_level.disabled = false
 	repeat_level.disabled = false
 	back_main_menu.disabled = false
+
+
+func _on_win_fx_finished():
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), previous_music_level)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://di7ul4c0lti0h"]
+[gd_scene load_steps=12 format=3 uid="uid://di7ul4c0lti0h"]
 
 [ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_3a1el"]
 [ext_resource type="Script" path="res://scripts/win_level.gd" id="1_a36hw"]
@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_kf8y2"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_jbdie"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_li2qb"]
+[ext_resource type="AudioStream" uid="uid://bpkedvs317ic" path="res://assets/sfx/nivel conseguido.wav" id="8_tp0mb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3p2r"]
 bg_color = Color(0, 0, 0, 0)
@@ -174,7 +175,13 @@ unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 
+[node name="WinFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_tp0mb")
+bus = &"sfx"
+
 [connection signal="pressed" from="background/win_level_menu/VBoxContainer/next_level" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="background/win_level_menu/VBoxContainer/Repeat_level" to="." method="_on_repeat_level_pressed"]
 [connection signal="pressed" from="background/win_level_menu/VBoxContainer/back_main_menu" to="." method="_on_back_main_menu_pressed"]
 [connection signal="timeout" from="EnableButtonsTimer" to="." method="_on_enable_buttons_timer_timeout"]
+[connection signal="finished" from="WinFX" to="." method="_on_win_fx_finished"]

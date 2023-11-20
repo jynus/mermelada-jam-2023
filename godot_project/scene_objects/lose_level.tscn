@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4mjf4hysg5a0"]
+[gd_scene load_steps=11 format=3 uid="uid://4mjf4hysg5a0"]
 
 [ext_resource type="Script" path="res://scripts/lose_level.gd" id="1_kdj1h"]
 [ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_pgncn"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="3_yqvf1"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_ng3pf"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_0lpa8"]
+[ext_resource type="AudioStream" uid="uid://3f4afgsu11ck" path="res://assets/sfx/nivel fallado.wav" id="7_bqqfe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yvt2g"]
 font = ExtResource("1_pgncn")
@@ -147,6 +148,12 @@ unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 
+[node name="LoseFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_bqqfe")
+bus = &"sfx"
+
 [connection signal="pressed" from="background/lose_level_menu/VBoxContainer/Repeat_level" to="." method="_on_repeat_level_pressed"]
 [connection signal="pressed" from="background/lose_level_menu/VBoxContainer/back_main_menu" to="." method="_on_back_main_menu_pressed"]
 [connection signal="timeout" from="EnableButtonsTimer" to="." method="_on_enable_buttons_timer_timeout"]
+[connection signal="finished" from="LoseFX" to="." method="_on_lose_fx_finished"]
