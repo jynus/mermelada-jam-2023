@@ -37,6 +37,7 @@ M1={
 [internationalization]
 
 locale/translations=PackedStringArray("res://assets/localization/localization.en.translation", "res://assets/localization/localization.es.translation")
+locale/test="es"
 
 [layer_names]
 

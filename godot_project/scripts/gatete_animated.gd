@@ -34,6 +34,11 @@ func _on_input_event(viewport, event, shape_idx):
 
 
 func _on_mouse_exited():
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	animation_player.speed_scale = 1
 	love_animation.emitting = false
 	cat_player.stop()
+
+
+func _on_mouse_entered():
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)

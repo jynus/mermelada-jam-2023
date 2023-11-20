@@ -1,13 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcn6mv851ljvb"]
+[gd_scene load_steps=13 format=3 uid="uid://dcn6mv851ljvb"]
 
 [ext_resource type="Script" path="res://scripts/win_game.gd" id="1_2ptp0"]
 [ext_resource type="FontFile" uid="uid://dx5eri8m2oqq8" path="res://assets/fonts/Catamaran-VariableFont_wght.ttf" id="1_42mbi"]
 [ext_resource type="Texture2D" uid="uid://bu4ocks1yebcp" path="res://assets/backgrounds/fondo_menu_1.jpg" id="2_4t8ni"]
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_sle3p"]
-[ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="3_lybhq"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_qofn5"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_ja6qw"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_xflox"]
+[ext_resource type="AudioStream" uid="uid://c2q1fn8ff4oat" path="res://assets/sfx/botones.wav" id="8_cpeou"]
+[ext_resource type="PackedScene" uid="uid://br7jp4ax2dybo" path="res://scene_objects/gatete_animated.tscn" id="9_5qyk0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3s4an"]
+font = ExtResource("1_42mbi")
+font_size = 70
+font_color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.12549)
+shadow_offset = Vector2(5, 5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt6hm"]
 bg_color = Color(0, 0, 0, 0)
@@ -41,60 +52,50 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
-[node name="win_game" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="win_game" type="Node2D"]
 script = ExtResource("1_2ptp0")
 
 [node name="backgroundSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_4t8ni")
 centered = false
 
-[node name="background" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0)
+[node name="win_menu" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 0)
+offset_left = 207.0
+offset_top = 105.0
+offset_right = 1007.0
+offset_bottom = 1000.0
+size_flags_horizontal = 4
+alignment = 1
 
-[node name="win_menu" type="HBoxContainer" parent="background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -3.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="left_margin" type="MarginContainer" parent="background/win_menu"]
-custom_minimum_size = Vector2(700, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="background/win_menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="win_menu"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Title" type="Label" parent="background/win_menu/VBoxContainer"]
+[node name="Title" type="Label" parent="win_menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "YOU WIN"
 label_settings = ExtResource("2_sle3p")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="background/win_menu/VBoxContainer"]
+[node name="tagline" type="Label" parent="win_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Stop staring and pet the kitty!"
+label_settings = SubResource("LabelSettings_3s4an")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="win_menu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="Credits" type="Button" parent="background/win_menu/VBoxContainer"]
+[node name="Credits" type="Button" parent="win_menu/VBoxContainer"]
 custom_minimum_size = Vector2(450, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -109,11 +110,11 @@ theme_override_styles/disabled = ExtResource("3_qofn5")
 theme_override_styles/focus = SubResource("StyleBoxFlat_vt6hm")
 text = "Credits"
 
-[node name="MarginContainer2" type="MarginContainer" parent="background/win_menu/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="win_menu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="Back_main_menu" type="Button" parent="background/win_menu/VBoxContainer"]
+[node name="Back_main_menu" type="Button" parent="win_menu/VBoxContainer"]
 custom_minimum_size = Vector2(450, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -127,17 +128,16 @@ theme_override_styles/disabled = ExtResource("3_qofn5")
 theme_override_styles/focus = SubResource("StyleBoxFlat_cxfxp")
 text = "Back to main menu"
 
-[node name="MarginContainer3" type="MarginContainer" parent="background/win_menu/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="win_menu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="background/win_menu"]
-custom_minimum_size = Vector2(700, 0)
-layout_mode = 2
-
 [node name="Click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_lybhq")
+stream = ExtResource("8_cpeou")
 volume_db = -10.0
 
-[connection signal="pressed" from="background/win_menu/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="background/win_menu/VBoxContainer/Back_main_menu" to="." method="_on_back_main_menu_pressed"]
+[node name="Gatete" parent="." instance=ExtResource("9_5qyk0")]
+position = Vector2(1374, 556)
+
+[connection signal="pressed" from="win_menu/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="win_menu/VBoxContainer/Back_main_menu" to="." method="_on_back_main_menu_pressed"]
