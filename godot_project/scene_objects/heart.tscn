@@ -9,25 +9,49 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_y8ffb")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, 2)
-texture = ExtResource("2_d1elb")
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-41, -64)
 polygon = PackedVector2Array(-65, 117, 63, 205, 155, 104, 186, 24, 177, -25, 151, -61, 100, -77, 67, -68, 40, -47, 16, -67, -20, -75, -65, -63, -93, -30, -105, 26)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("2_d1elb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_rp27s")
 bus = &"sfx"
 
 [node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="ClickedEffect" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(300, 300)
+spread = 180.0
+gravity = Vector2(0, 700)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+angular_velocity_min = 91.14
+angular_velocity_max = 91.14
+radial_accel_min = 1000.0
+radial_accel_max = 1000.0
+tangential_accel_max = 6.33
+angle_max = 360.0
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+
+[node name="DestroyTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

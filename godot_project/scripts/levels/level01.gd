@@ -19,8 +19,8 @@ func spawn_heart():
 	var sprite : Sprite2D = heart.get_node("Sprite")
 	var heart_size = Vector2(sprite.texture.get_width(), sprite.texture.get_height())
 	get_node("hearts").add_child(heart)
-	heart.position = Vector2(randi_range(heart_size.x, get_viewport_rect().size.x - heart_size.x),
-							 randi_range(heart_size.y, get_viewport_rect().size.y - heart_size.y))
+	heart.position = Vector2(randi_range(heart_size.x / 2, get_viewport_rect().size.x - heart_size.x / 2),
+							 randi_range(heart_size.y / 2, get_viewport_rect().size.y - heart_size.y / 2))
 	heart.connect("missed", heart_missed)
 	spawn_effect.play()
 
@@ -32,13 +32,19 @@ func _on_spawn_timer_timeout():
 	spawn_heart()
 
 func level_win():
+	Input.set_custom_mouse_cursor(null)
 	win_level.show()
 
 func _on_win_timer_timeout():
 	level_win()
 
 func game_over():
+	Input.set_custom_mouse_cursor(null)
 	lose_level.show()
 
 func _on_eyelids_fully_closed():
 	game_over()
+
+
+func _on_increase_difficulty_timer_timeout():
+	spawn_timer.wait_time /= 1.3

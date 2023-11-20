@@ -39,6 +39,7 @@ unique_name_in_owner = true
 
 [node name="SpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 2.0
 autostart = true
 
 [node name="eyelids" parent="." instance=ExtResource("3_yols6")]
@@ -60,6 +61,11 @@ wait_time = 60.0
 one_shot = true
 autostart = true
 
+[node name="IncreaseDifficultyTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="fully_closed" from="eyelids" to="." method="_on_eyelids_fully_closed"]
 [connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="IncreaseDifficultyTimer" to="." method="_on_increase_difficulty_timer_timeout"]

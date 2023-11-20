@@ -19,6 +19,8 @@ func _unhandled_input(event):
 			pause_game()
 
 func _ready():
+	Input.set_custom_mouse_cursor(null)
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	visible = false
 
 
