@@ -80,7 +80,7 @@ theme_override_font_sizes/bold_font_size = 70
 bbcode_enabled = true
 text = "[center][b]Eoloh[/b] (programación)
 [b]montes8ish[/b] (diseño gráfico)
-[b]moliwater[/b] (música y sonido)
+[b]Mooge[/b] (música y sonido)
 [b]jynus[/b] (programación)
 
 [b]Duelo de miauradas by Anemone Games[/b]
@@ -139,7 +139,7 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-tooltip_text = "SoundCloud de moogge"
+tooltip_text = "SoundCloud de Moogge"
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
