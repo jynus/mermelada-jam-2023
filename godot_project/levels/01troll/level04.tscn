@@ -64,6 +64,7 @@ metadata/_edit_lock_ = true
 position = Vector2(630, 540)
 
 [node name="Torreta1" parent="PivotTorreta1" instance=ExtResource("3_m6oba")]
+unique_name_in_owner = true
 
 [node name="PlayerTurret1" parent="PivotTorreta1" instance=ExtResource("4_q5pjy")]
 unique_name_in_owner = true
@@ -72,6 +73,7 @@ unique_name_in_owner = true
 position = Vector2(1380, 540)
 
 [node name="Torreta2" parent="PivotTorreta2" instance=ExtResource("3_m6oba")]
+unique_name_in_owner = true
 side = "right"
 
 [node name="PlayerTurret2" parent="PivotTorreta2" instance=ExtResource("4_q5pjy")]
@@ -101,7 +103,13 @@ unique_name_in_owner = true
 wait_time = 60.0
 autostart = true
 
+[node name="IncreseDifficultyTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+autostart = true
+
 [connection signal="player_hit" from="PivotTorreta1/PlayerTurret1" to="." method="_on_player_player_hit"]
 [connection signal="player_hit" from="PivotTorreta2/PlayerTurret2" to="." method="_on_player_player_hit"]
 [connection signal="fully_closed" from="eyelids" to="." method="_on_eyelids_fully_closed"]
 [connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="IncreseDifficultyTimer" to="." method="_on_increse_difficulty_timer_timeout"]

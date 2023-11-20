@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var eye_rotation_degress: float = 2
+@export var eye_rotation_degress: float = 1
 @export var side: String = "left"
 @onready var proyectile_spawner = $ProyectileSpawner
 @onready var shoot_sound = %ShootSound
