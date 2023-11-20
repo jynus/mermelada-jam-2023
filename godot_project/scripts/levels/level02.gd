@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var miss_penalty: float = 10
+@export var drop_speed: float = 100
 var spawn_object_level : PackedScene = preload("res://scene_objects/colirio.tscn")
 @onready var player = %Player
 @onready var pickup_effect = %PickupEffect
@@ -11,6 +12,7 @@ var spawn_object_level : PackedScene = preload("res://scene_objects/colirio.tscn
 @onready var colirios = %colirios
 @onready var win_level = %win_level
 @onready var lose_level = %lose_level
+@onready var spawn_timer = %SpawnTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +32,7 @@ func spawn_object():
 												 spawn_limit_right.position.x - size.x / 2),
 									 -size.y)
 	object.missed.connect(colirio_missed)
+	object.speed = drop_speed
 
 func colirio_missed():
 	miss_effect.play()
@@ -54,3 +57,8 @@ func level_win():
 
 func _on_win_timer_timeout():
 	level_win()
+
+func _on_increase_dificulty_timer_timeout():
+	spawn_timer.wait_time /= 1.1
+	drop_speed += 30
+	

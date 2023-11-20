@@ -6,6 +6,7 @@ extends Area2D
 var cat = preload("res://assets/sprites/huella_gato.png")
 @onready var clicked_effect = %ClickedEffect
 @onready var destroy_timer = %DestroyTimer
+@onready var collision = %Collision
 
 signal missed
 signal touched
@@ -19,11 +20,8 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_area_entered(area):
-	touched.emit()
-	queue_free()
-
 func click_heart():
+	collision.set_deferred("disabled", true)
 	print("Clicked")
 	$DespawnTimer.paused = true
 	clicked_effect.emitting = true
@@ -48,7 +46,7 @@ func _on_despawn_timer_timeout():
 	clicked_effect.color = Globals.COLOR_BAD
 	clicked_effect.emitting = true
 	sprite.hide()
-	$CollisionPolygon2D.disabled = true
+	collision.set_deferred("disabled", true)
 	missed.emit()
 	destroy_timer.start()
 

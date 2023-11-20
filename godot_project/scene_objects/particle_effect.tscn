@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://vynkflwpis8o"]
+
+[node name="ParticleEffect" type="CPUParticles2D"]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(300, 300)
+spread = 180.0
+gravity = Vector2(0, 700)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+angular_velocity_min = 91.14
+angular_velocity_max = 91.14
+radial_accel_min = 1000.0
+radial_accel_max = 1000.0
+tangential_accel_max = 6.33
+angle_max = 360.0
+scale_amount_min = 10.0
+scale_amount_max = 10.0

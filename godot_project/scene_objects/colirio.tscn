@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://8f4cg2fq6xid"]
+[gd_scene load_steps=4 format=3 uid="uid://8f4cg2fq6xid"]
 
 [ext_resource type="Script" path="res://scripts/Colirio.gd" id="1_prw2p"]
 [ext_resource type="Texture2D" uid="uid://dgfucm4mfhk7r" path="res://assets/sprites/gota.png" id="2_obov5"]
+[ext_resource type="PackedScene" uid="uid://vynkflwpis8o" path="res://scene_objects/particle_effect.tscn" id="3_n37tn"]
 
 [node name="Colirio" type="Area2D"]
 collision_layer = 4
@@ -12,7 +13,16 @@ script = ExtResource("1_prw2p")
 unique_name_in_owner = true
 texture = ExtResource("2_obov5")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+unique_name_in_owner = true
 polygon = PackedVector2Array(19, -115, -19, -76, -47, -5, -47, 62, -39, 91, -16, 114, 8, 114, 33, 99, 49, 50, 46, 10, 24, -44, 15, -90)
 
+[node name="DestroyTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="ParticleEffect" parent="." instance=ExtResource("3_n37tn")]
+unique_name_in_owner = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
