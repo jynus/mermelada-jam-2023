@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5afnnhdblb8p"]
+[gd_scene load_steps=21 format=3 uid="uid://5afnnhdblb8p"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_v40wr"]
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_ckptl"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://d1oyxvj1u5wof" path="res://scene_objects/blip.tscn" id="10_erdpa"]
 [ext_resource type="PackedScene" uid="uid://b05n1aavwqjfg" path="res://scene_objects/settings.tscn" id="11_5pplk"]
 [ext_resource type="Texture2D" uid="uid://1lgd312cgq0g" path="res://assets/sprites/mosca_enemigo_1.png" id="12_vxmco"]
+[ext_resource type="PackedScene" uid="uid://vynkflwpis8o" path="res://scene_objects/particle_effect.tscn" id="13_lmgql"]
+[ext_resource type="AudioStream" uid="uid://cp4rxiedr6f88" path="res://assets/sfx/hit.wav" id="14_yvk84"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypyq"]
 bg_color = Color(0, 0, 0, 0)
@@ -223,9 +225,6 @@ vertical_alignment = 1
 [node name="blip" parent="." instance=ExtResource("10_erdpa")]
 bus = &"Master"
 
-[node name="settings" parent="." instance=ExtResource("11_5pplk")]
-visible = false
-
 [node name="flyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_006iv")
 
@@ -234,8 +233,26 @@ position = Vector2(423, -117)
 rotation = 1.80505
 
 [node name="MoscaEnemigo1" type="Sprite2D" parent="flyPath/flyfollow"]
+unique_name_in_owner = true
 rotation = -1.80505
 texture = ExtResource("12_vxmco")
+
+[node name="ParticleEffect" parent="flyPath/flyfollow/MoscaEnemigo1" instance=ExtResource("13_lmgql")]
+unique_name_in_owner = true
+emission_rect_extents = Vector2(200, 100)
+
+[node name="FlyCollision" type="Area2D" parent="flyPath/flyfollow/MoscaEnemigo1"]
+
+[node name="FlyCollisionShape" type="CollisionPolygon2D" parent="flyPath/flyfollow/MoscaEnemigo1/FlyCollision"]
+polygon = PackedVector2Array(-51.0001, -34.9999, -52, -16.9999, -47, 3.00006, -27, 7.00004, 3.05176e-05, 25, 31, 3.99996, 46, 0.999939, 50.9999, -36.0001, 40.9999, -37.0001, 22, -17, 13.9999, -40, -14.0001, -40, -21, -13, -42.0001, -37.9999)
+
+[node name="flydeath" type="AudioStreamPlayer" parent="flyPath/flyfollow/MoscaEnemigo1"]
+unique_name_in_owner = true
+stream = ExtResource("14_yvk84")
+bus = &"sfx"
+
+[node name="settings" parent="." instance=ExtResource("11_5pplk")]
+visible = false
 
 [node name="flyAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fly"
@@ -247,3 +264,5 @@ libraries = {
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="mouse_entered" from="flyPath/flyfollow/MoscaEnemigo1/FlyCollision" to="." method="_on_fly_collision_mouse_entered"]
+[connection signal="visibility_changed" from="settings" to="." method="_on_settings_visibility_changed"]
