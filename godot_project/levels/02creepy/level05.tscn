@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b3wsqgeyff8hf" path="res://scene_objects/pause_menu.tscn" id="7_qp8kp"]
 [ext_resource type="PackedScene" uid="uid://4mjf4hysg5a0" path="res://scene_objects/lose_level.tscn" id="8_88p8s"]
 [ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="9_d7sot"]
-[ext_resource type="AudioStream" uid="uid://drltccy7c0nv0" path="res://assets/sfx/miss.wav" id="10_ingrs"]
+[ext_resource type="AudioStream" uid="uid://cp4rxiedr6f88" path="res://assets/sfx/hit.wav" id="12_pu47m"]
 
 [sub_resource type="Curve2D" id="Curve2D_eimt3"]
 _data = {
@@ -24,7 +24,8 @@ script = ExtResource("1_nacv0")
 enemy_scene = ExtResource("2_ked14")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(962, 540)
+position = Vector2(962, 541)
+scale = Vector2(1, 1.00185)
 texture = ExtResource("3_c7m6f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -59,7 +60,7 @@ z_index = 1
 
 [node name="laser_cat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_gsi7m")
-volume_db = -8.0
+bus = &"sfx"
 
 [node name="lose_level" parent="." instance=ExtResource("8_88p8s")]
 unique_name_in_owner = true
@@ -80,8 +81,8 @@ wait_time = 60.0
 autostart = true
 
 [node name="miss_effect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_ingrs")
-volume_db = -15.0
+stream = ExtResource("12_pu47m")
+bus = &"sfx"
 
 [connection signal="area_entered" from="borde_eye" to="Ship_player" method="_on_borde_eye_area_entered"]
 [connection signal="player_hit" from="Ship_player" to="." method="_on_ship_player_player_hit"]
