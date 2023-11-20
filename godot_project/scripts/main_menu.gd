@@ -81,6 +81,8 @@ func _on_fly_collision_mouse_entered():
 		%ParticleEffect.color = Globals.COLOR_BAD
 		%ParticleEffect.emitting = true
 		%MoscaEnemigo1.self_modulate = Color.TRANSPARENT
+		%MoscaEnemigo1/FlyCollision/FlyCollisionShape.set_deferred("disabled", true)
+
 		%flydeath.play()
 		await %flydeath.finished
 		%MoscaEnemigo1.queue_free()
