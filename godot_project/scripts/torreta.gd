@@ -3,8 +3,10 @@ extends Node2D
 @export var eye_rotation_degress: float = 2
 @export var side: String = "left"
 @onready var proyectile_spawner = $ProyectileSpawner
+@onready var shoot_sound = %ShootSound
 var laser_scene: PackedScene = preload("res://scene_objects/proyectile.tscn")
 var is_shooting = false
+
 
 
 func shoot():
@@ -17,6 +19,7 @@ func shoot():
 	laser.global_position = proyectile_spawner.global_position
 	laser.set_collision(side)
 	laser.connect("impacted", shoot_finished)
+	shoot_sound.play()
 
 func shoot_finished():
 	"""Continue moving"""

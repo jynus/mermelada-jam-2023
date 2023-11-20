@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbv6oiwho8swl"]
+[gd_scene load_steps=4 format=3 uid="uid://cbv6oiwho8swl"]
 
 [ext_resource type="Script" path="res://scripts/torreta.gd" id="1_j8pkh"]
-[ext_resource type="Texture2D" uid="uid://c0p3gwqgxm7al" path="res://assets/sprites/towerDefense_tile250.png" id="2_44c2h"]
+[ext_resource type="Texture2D" uid="uid://dqqxexban6aed" path="res://assets/sprites/ojo_torreta_1.png" id="2_g5itd"]
+[ext_resource type="AudioStream" uid="uid://bds6usm1tpxom" path="res://assets/sfx/disparos.wav" id="3_nybfa"]
 
 [node name="Torreta" type="Node2D"]
 script = ExtResource("1_j8pkh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-texture = ExtResource("2_44c2h")
+scale = Vector2(2, 2)
+texture = ExtResource("2_g5itd")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -19,4 +21,9 @@ collision_mask = 2
 collide_with_areas = true
 
 [node name="ProyectileSpawner" type="Marker2D" parent="."]
-position = Vector2(56, 0)
+position = Vector2(63, 0)
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_nybfa")
+bus = &"sfx"

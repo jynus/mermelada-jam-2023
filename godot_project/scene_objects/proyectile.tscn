@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cc4wdfa8cd2i6" path="res://assets/sprites/laser.png" id="2_8hksl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nhqx2"]
-radius = 7.0
-height = 58.0
+radius = 13.0
+height = 114.0
 
 [node name="Proyectile" type="Area2D"]
 collision_layer = 4
@@ -14,25 +14,29 @@ script = ExtResource("1_ediy1")
 speed = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(29.5, -10.5)
+position = Vector2(57, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nhqx2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(29.5, 10.5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nhqx2")
+disabled = true
 
 [node name="Laser1" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(29.5, 10.5)
+visible = false
+position = Vector2(29.5, 0)
 rotation = 1.5708
 texture = ExtResource("2_8hksl")
 
 [node name="Laser2" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(29.5, -10.5)
+position = Vector2(57, 0)
 rotation = 1.5708
+scale = Vector2(2, 2)
 texture = ExtResource("2_8hksl")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

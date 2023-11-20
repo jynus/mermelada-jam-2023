@@ -10,13 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://4mjf4hysg5a0" path="res://scene_objects/lose_level.tscn" id="8_fgbep"]
 [ext_resource type="PackedScene" uid="uid://di7ul4c0lti0h" path="res://scene_objects/win_level.tscn" id="9_1pdko"]
 
-[sub_resource type="Gradient" id="Gradient_4376e"]
+[sub_resource type="Gradient" id="Gradient_iy1d0"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.454212, 0.78022)
 colors = PackedColorArray(1, 1, 1, 1, 0.793518, 0.793518, 0.793518, 1, 0.552956, 0.552956, 0.552955, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_aygo6"]
-gradient = SubResource("Gradient_4376e")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aakd3"]
+gradient = SubResource("Gradient_iy1d0")
 width = 1080
 height = 1080
 fill = 1
@@ -93,7 +93,7 @@ script = ExtResource("1_2tov6")
 [node name="BackgroundEye" type="Sprite2D" parent="."]
 position = Vector2(608, 509)
 scale = Vector2(0.8, 1)
-texture = SubResource("GradientTexture2D_aygo6")
+texture = SubResource("GradientTexture2D_aakd3")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_f6ku6")

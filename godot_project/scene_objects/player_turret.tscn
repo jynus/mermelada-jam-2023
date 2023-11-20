@@ -1,16 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b572jyegbcwyo"]
+[gd_scene load_steps=6 format=3 uid="uid://b572jyegbcwyo"]
 
 [ext_resource type="Script" path="res://scripts/player_turret.gd" id="1_xr0n7"]
-[ext_resource type="Texture2D" uid="uid://c7588ecjctp32" path="res://assets/sprites/ojo_1.png" id="2_s1sdb"]
+[ext_resource type="Texture2D" uid="uid://1lgd312cgq0g" path="res://assets/sprites/mosca_enemigo_1.png" id="2_yyd2f"]
+[ext_resource type="PackedScene" uid="uid://vynkflwpis8o" path="res://scene_objects/particle_effect.tscn" id="3_03ev6"]
+[ext_resource type="AudioStream" uid="uid://cp4rxiedr6f88" path="res://assets/sfx/hit.wav" id="4_lg4jy"]
 
 [sub_resource type="Curve2D" id="Curve2D_rnjl1"]
 _data = {
 "points": PackedVector2Array(169.474, 0.437755, -169.474, -0.437755, 491, 159, -2, -167.47, 2, 167.47, 214, 539, -179.501, 0.708232, 179.501, -0.708232, 493, 911, 0.133209, 154.151, -0.133209, -154.151, 748, 533, 178.861, -0.0723114, -178.861, 0.0723114, 491, 159)
 }
 point_count = 5
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_feqfi"]
-radius = 30.0
 
 [node name="PlayerTurret" type="Node2D"]
 script = ExtResource("1_xr0n7")
@@ -22,22 +21,34 @@ curve = SubResource("Curve2D_rnjl1")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(491, 159)
 rotation = -3.13901
+rotates = false
 
 [node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
 collision_layer = 2
 collision_mask = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Area2D"]
-texture = ExtResource("2_s1sdb")
+rotation = 3.14159
+texture = ExtResource("2_yyd2f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D"]
 position = Vector2(-6.99998, 0.0180969)
-shape = SubResource("CircleShape2D_feqfi")
+polygon = PackedVector2Array(46.1032, 39.881, 30.0516, 19.9224, 21.1033, 39.9456, -5.89408, 41.0153, -17.9509, 19.0464, -30.8992, 39.0799, -37.8966, 40.098, -46.912, 34.1212, -40.0024, -0.896729, -3.06198, -23.9922, 15.9354, -25.0413, 51.9921, -3.13434, 62.0876, 33.8397, 53.1057, 40.8629)
+
+[node name="ParticleEffect" parent="Path2D/PathFollow2D/Area2D" instance=ExtResource("3_03ev6")]
+unique_name_in_owner = true
+rotation = 3.13901
+emission_rect_extents = Vector2(100, 50)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_lg4jy")
+bus = &"sfx"
 
 [connection signal="area_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
